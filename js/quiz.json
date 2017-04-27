@@ -1,9 +1,9 @@
-{
+var quiz = {
   "time_seconds": 300,
   "questions": [
     {
       "id": 1,
-      "question": "Obw骴 tr骿kata ABC wynosi 20cm. Jaka dlugosc ma podstawa AB?",
+      "question": "Obw贸d tr贸jkata ABC wynosi 20cm. Jaka dlugosc ma podstawa AB?",
       "answers": [
         {
           "id": 1,
@@ -32,7 +32,7 @@
     },
     {
       "id": 2,
-      "question": "356 banknot體 stuzlotowych oraz 60 banknot體 piecdziesieciozlotowych to:",
+      "question": "356 banknot贸w stuzlotowych oraz 60 banknot贸w piecdziesieciozlotowych to:",
       "answers": [
         {
           "id": 1,
@@ -61,7 +61,7 @@
     },
     {
       "id": 3,
-      "question": "W starozytnym Rzymie wladzy konsul體 nie podlegali jedynie:",
+      "question": "W starozytnym Rzymie wladzy konsul贸w nie podlegali jedynie:",
       "answers": [
         {
           "id": 1,
@@ -90,17 +90,17 @@
     },
     {
       "id": 4,
-      "question": "Gall Anonim idealizowal zmoznosc panstwa polskiego za czas體 Boleslawa Chrobrego, gdy zapisywal nastepujace slowa:",
+      "question": "Gall Anonim idealizowal zmoznosc panstwa polskiego za czas贸w Boleslawa Chrobrego, gdy zapisywal nastepujace slowa:",
       "answers": [
         {
           "id": 1,
-          "answer": "Nie godzi sie takiego i tak wielkiego meza, jakby jednego sposr骴 dostojnik體 ksieciem nazywac lub hrabia [...].",
+          "answer": "Nie godzi sie takiego i tak wielkiego meza, jakby jednego sposr贸d dostojnik贸w ksieciem nazywac lub hrabia [...].",
           "correct": false
         },
         
         {
           "id": 2,
-          "answer": "Zloto bowiem za jego czas體 bylo tak pospolite u wszystkich, jak [dzis] srebro, srebro zas tak tanie jak sloma.",
+          "answer": "Zloto bowiem za jego czas贸w bylo tak pospolite u wszystkich, jak [dzis] srebro, srebro zas tak tanie jak sloma.",
           "correct": true
         },
         
@@ -112,7 +112,7 @@
         
         {
           "id": 4,
-          "answer": "[...] hufce przer髗ne rycerstwa [...] [Boleslaw] rozstawil [...] na obszernej r體ninie, a poszczeg髄ne, z osobna stojace hufce wyr髗niala odmienna barwa stroj體.",
+          "answer": "[...] hufce przer贸zne rycerstwa [...] [Boleslaw] rozstawil [...] na obszernej r贸wninie, a poszczeg贸lne, z osobna stojace hufce wyr贸zniala odmienna barwa stroj贸w.",
           "correct": false
         }
       ]
@@ -133,7 +133,7 @@
         },
         {
           "id": 3,
-          "answer": "Tw髍ca oltarza w kosciele Mariackim w Krakowie",
+          "answer": "Tw贸rca oltarza w kosciele Mariackim w Krakowie",
           "correct": true
         },
         {
@@ -145,7 +145,7 @@
     },
     {
       "id": 6,
-      "question": "Alkiny to weglowodory, w kt髍ych czasteczkach miedzy atomami wegla sa:",
+      "question": "Alkiny to weglowodory, w kt贸rych czasteczkach miedzy atomami wegla sa:",
       "answers": [
         {
           "id": 1,
@@ -154,24 +154,24 @@
         },
         {
           "id": 2,
-          "answer": "pojedyncze wiazania i jedno podw骿ne wiazanie",
+          "answer": "pojedyncze wiazania i jedno podw贸jne wiazanie",
           "correct": false
         },
         {
           "id": 3,
-          "answer": "pojedyncze wiazania i jedno potr骿ne wiazanie",
+          "answer": "pojedyncze wiazania i jedno potr贸jne wiazanie",
           "correct": true
         },
         {
           "id": 4,
-          "answer": "wiazania pojedyncze, jedno podw骿ne wiazanie i jedno potr骿ne",
+          "answer": "wiazania pojedyncze, jedno podw贸jne wiazanie i jedno potr贸jne",
           "correct": false
         }
       ]
     },
     {
       "id": 7,
-      "question": "Wsp髄na cecha metanu i oktanu jest:",
+      "question": "Wsp贸lna cecha metanu i oktanu jest:",
       "answers": [
         {
           "id": 1,
@@ -197,7 +197,7 @@
     },
     {
       "id": 8,
-      "question": "Kt髍y opis dotyczy wlasciwosci ropy naftowej?",
+      "question": "Kt贸ry opis dotyczy wlasciwosci ropy naftowej?",
       "answers": [
         {
           "id": 1,
@@ -213,7 +213,7 @@
         
         {
           "id": 3,
-          "answer": "lekko z髄ta ciecz, niepalna, unosi sie na powierzchni wody",
+          "answer": "lekko z贸lta ciecz, niepalna, unosi sie na powierzchni wody",
           "correct": false
         },
         
@@ -230,17 +230,17 @@
       "answers": [
         {
           "id": 1,
-          "answer": "izotop體",
+          "answer": "izotop贸w",
           "correct": false
         },
         {
           "id": 2,
-          "answer": "elektron體",
+          "answer": "elektron贸w",
           "correct": false
         },
         {
           "id": 3,
-          "answer": "eloktron體 walencyjnych",
+          "answer": "eloktron贸w walencyjnych",
           "correct": true
         },
         {
