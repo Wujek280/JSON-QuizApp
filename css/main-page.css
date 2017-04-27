@@ -1,0 +1,18 @@
+.main-header {
+   width: 300px;
+   text-align: center;
+}
+.main-header-nameBox {
+   width: 200px;	
+   height: 28px;
+}
+
+.main-header-yesButton {
+   display: block;
+   width: 200px;
+   height: 28px;
+   text-align: center;
+   background-color: orange;
+   margin: auto;
+   margin-top: 2ex;
+}

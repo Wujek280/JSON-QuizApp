@@ -1,0 +1,26 @@
+.quiz-bar {
+   color: white;
+   background-color: #666;
+   border: none;
+   border-left:3px solid orange;
+   width: 300px;
+   height: 40px;
+   margin: 5px auto;
+   transition: 0.3s background-color ;
+}
+
+.quiz-question{
+   height: 60px;
+}
+
+input[type=radio]
+{
+   
+}
+
+.quiz-answer:hover {
+   background-color: #777;
+   transition: 0.3s background-color ;
+   cursor: pointer;
+   border-left:3px solid yellow;
+}

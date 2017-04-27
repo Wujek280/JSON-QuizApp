@@ -1,6 +1,15 @@
-body {	
-	font-family: Lato;
+*{
+   box-sizing: border-box;
 }
 
-a{color: yellow;}
+body {	
+   font-family: Lato;
+   color: white;
+   background-color: #303030;
+}
+
+a{
+   color: yellow;
+   text-decoration: none;
+}
 
