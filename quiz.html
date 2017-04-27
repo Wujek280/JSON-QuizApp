@@ -10,38 +10,29 @@
 	<title>QuizApp</title>
     
     <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<!--    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"> -->
+<!-- <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"> -->
 </head>
 
 <body>
     
-
-
    <section id="quiz-box">
       
        <p class="quiz-question quiz-bar">356 banknotów stuzlotowych oraz 60 banknotów piecdziesieciozlotowych to:</p>
        
-       <!-- (p.quiz-answer.quiz-bar>input[type=radio name=answer id=ans_$]{Answer no. $})*4 -->
-       
-       <label class="quiz-answer quiz-bar">
-         <input type="radio" name="answer" id="ans_1"></input>Answer no. 1
-      </label>       <label class="quiz-answer quiz-bar">
-         <input type="radio" name="answer" id="ans_1"></input>Answer no. 1
-      </label>       <label class="quiz-answer quiz-bar">
-         <input type="radio" name="answer" id="ans_1"></input>Answer no. 1
-      </label>       <label class="quiz-answer quiz-bar">
-         <input type="radio" name="answer" id="ans_1"></input>Answer no. 1
-      </label>
-              
+       <!-- (input[type=radio name=answer id=ans_$]>label[for=ans_$].quiz-answer.quiz-bar{Answer no. $})*4 -->
+       <input type="radio" name="answer" id="ans_1"><label for="ans_1" class="quiz-answer quiz-bar">Answer no. 1</label></input>
+       <input type="radio" name="answer" id="ans_2"><label for="ans_2" class="quiz-answer quiz-bar">Answer no. 2</label></input>
+       <input type="radio" name="answer" id="ans_3"><label for="ans_3" class="quiz-answer quiz-bar">Answer no. 3</label></input>
+       <input type="radio" name="answer" id="ans_4"><label for="ans_4" class="quiz-answer quiz-bar">Answer no. 4</label></input>
+                
       <label class="quiz-nextButton quiz-bar">
          <input type="button" name="answer" ></input>>>>
       </label>
-              
-               
+                             
    </section>    
 
-    <script src="js/quiz.json"></script>	
-    <script src="js/quiz-loader.js"></script>	
+   <script src="js/quiz.json"></script>	
+   <script src="js/quiz-loader.js"></script>	
     
 </body>
 </html>
