@@ -1,26 +1,55 @@
+/*******DISPLAY CONTROL***********/
+label {
+   display: block;
+}
+
+label > input {
+   display: none;
+}
+
+/*******MAIN BOX******************/
+#quiz-box {
+   width: 33%;
+   margin: auto;
+}
+
+/********BAR STYLES***************/
+
 .quiz-bar {
+   padding: 5px;
+   padding-left: 20px;
    color: white;
    background-color: #666;
    border: none;
    border-left:3px solid orange;
-   width: 300px;
-   height: 40px;
+   width: 100%;
+   min-height: 40px;
    margin: 5px auto;
-   transition: 0.3s background-color ;
+   transition: 0.3s background-color;
 }
 
 .quiz-question{
-   height: 60px;
-}
-
-input[type=radio]
-{
-   
+   border-left: 3px solid #fff;
+   background-color: #777;
+   min-height: 60px;
+   text-align: center;
 }
 
 .quiz-answer:hover {
    background-color: #777;
    transition: 0.3s background-color ;
    cursor: pointer;
-   border-left:3px solid yellow;
+   border-left:3px solid #dd0;
+}
+
+.quiz-nextButton {
+   background-color: #797;
+   transition: 0.3s background-color ;
+   cursor: pointer;
+   border-left:3px solid green;
+}
+
+.quiz-nextButton:hover {
+   background-color: #8A8;
+   transition: 0.3s background-color ;
 }
