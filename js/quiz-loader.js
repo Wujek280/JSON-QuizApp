@@ -51,73 +51,82 @@ var quiz = JSON.parse(readJSON(path));
 
 function showQuestion(n) {
       
+   
+   if(currentQuestionID != quizNoOfQuestions)
+      {
+      
+      console.log("TERMINATE");
+      console.log('answered ID: ');
+      console.log(currentQuestionID+1);
    /////////ONCE FOR QUESTION
-   /////////////////////////////
-   
+   /////////////////////////////   
 
-   
-   //////// UPDATE ID
-   var quizStatusID = 'ID : '+(currentQuestionID+1)+'/'+quizNoOfQuestions;
-   document.getElementsByClassName('quiz-status-id')[0].innerHTML = quizStatusID;
-   
-   /////// PUSH FOR STATS
-   askedQuestion = quiz.questions[n].question;
-   askedQuestions.push(askedQuestion);
-   
-   var createQuestion;
-      createQuestion = document.createElement('h3');
-      createQuestion.id = "quiz-question-anchor";
-      createQuestion.className = "quiz-question quiz-bar";
-      createQuestion.innerHTML = quiz.questions[n].question;
-   
-   document.getElementById('quiz').appendChild(createQuestion);
-   
-   document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--default";
-   
+
+      //////// UPDATE ID
+      var quizStatusID = 'ID : '+(currentQuestionID+1)+'/'+quizNoOfQuestions;
+      document.getElementsByClassName('quiz-status-id')[0].innerHTML = quizStatusID;
+
+      /////// PUSH FOR STATS
+      askedQuestion = quiz.questions[n].question;
+      askedQuestions.push(askedQuestion);
+
+      var createQuestion;
+         createQuestion = document.createElement('h3');
+         createQuestion.id = "quiz-question-anchor";
+         createQuestion.className = "quiz-question quiz-bar";
+         createQuestion.innerHTML = quiz.questions[n].question;
+
+      document.getElementById('quiz').appendChild(createQuestion);
+
+      document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--default";
+
    /////////LOOP FOR EACH ANSWER
    /////////////////////////////
-   
-   quiz.questions[n].answers.forEach(function(element, i){
-   
-      //CREATE ANSWER NODES
-      var createAnswer;
-         i++;
-         createAnswer = document.createElement('input');
-         createAnswer.type = 'radio';
-         createAnswer.setAttribute('name','answer');
-         createAnswer.id = 'ans_'+i;
-      
 
-      var createLabelForAnswer;
-         createLabelForAnswer = document.createElement('label');
-         createLabelForAnswer.setAttribute('for','ans_'+i );
-         createLabelForAnswer.className = "quiz-bar-answer quiz-bar";   
-         createLabelForAnswer.innerHTML = element.answer;
-      
-      //APPEND THEM
-      document.getElementById('quiz').appendChild(createAnswer);   
-      document.getElementById('quiz').appendChild(createLabelForAnswer);   
-      
-      //ADD PROPER ONCLICK LISTENER
-      document.getElementById('ans_'+i).addEventListener('click',function(){
-         console.log(i);
-         userAnswerID = i;
-         document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--answer";
+      quiz.questions[n].answers.forEach(function(element, i){
+
+         //CREATE ANSWER NODES
+         var createAnswer;
+            i++;
+            createAnswer = document.createElement('input');
+            createAnswer.type = 'radio';
+            createAnswer.setAttribute('name','answer');
+            createAnswer.id = 'ans_'+i;
+
+
+         var createLabelForAnswer;
+            createLabelForAnswer = document.createElement('label');
+            createLabelForAnswer.setAttribute('for','ans_'+i );
+            createLabelForAnswer.className = "quiz-bar-answer quiz-bar";   
+            createLabelForAnswer.innerHTML = element.answer;
+
+         //APPEND THEM
+         document.getElementById('quiz').appendChild(createAnswer);   
+         document.getElementById('quiz').appendChild(createLabelForAnswer);   
+
+         //ADD PROPER ONCLICK LISTENER
+         document.getElementById('ans_'+i).addEventListener('click',function(){
+            console.log(i);
+            userAnswerID = i;
+            document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--answer";
+         });
+
+         //SAVE CORRECT ANSWER FOR STATS
+         if(element.correct === true){
+               correctAnswersTEXT.push(element.answer);
+               questionAnswerID = element.id;     correctAnswersID.push(element.id);  
+               console.log("Correct answer : "+element.id);
+            }      
       });
-      
-      //SAVE CORRECT ANSWER FOR STATS
-      if(element.correct === true){
-            correctAnswersTEXT.push(element.answer);
-            questionAnswerID = element.id;     correctAnswersID.push(element.id);  
-            console.log("Correct answer : "+element.id);
-         }      
-   });
-      
+   }
 }
 
 
 
 function answerQuestion (n){
+
+   
+   
    
    //////// CHECK IF USER CLICKED ANY ANSWER
    /////////////////////////////////////////////////
