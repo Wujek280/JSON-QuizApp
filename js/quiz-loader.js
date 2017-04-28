@@ -27,7 +27,7 @@ var quiz = JSON.parse(readJSON(path));
 
 //////// DYNAMIC VARIABLES
 ///////////////////////////////
-   var askedQuestion;      //CLR AFTER SUBMIT
+   var askedQuestion;       //CLR AFTER SUBMIT
    var userAnswerID;    
    var questionAnswerID;
 
@@ -124,7 +124,10 @@ function answerQuestion (n){
    
    if(userAnswerID != null){
       
+      ///// PUSH ID TO ARRAY
+      userAnswersID.push(userAnswerID);
       
+      ///// PUSH IF YOU SCORED OR NOT
       if(userAnswerID == questionAnswerID)
       {
          userScored.push('+');
@@ -132,14 +135,10 @@ function answerQuestion (n){
          userScored.push('-');
       }
       
-      
-      
-      
-      
-      
-      
-      
-      
+      ///// PUSH TEXT YOU ANSWERED
+      var useranswer = document.getElementsByTagName('label')[userAnswerID-1].innerHTML;
+      userAnswersTEXT.push(useranswer);
+         
             
       ////////  CLEAR BOX 
       ////////  RESET AnswerNo 
