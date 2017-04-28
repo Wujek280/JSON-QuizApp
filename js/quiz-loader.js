@@ -29,8 +29,8 @@ var quizTimeSeconds = parseInt(quiz.time_seconds % 60);
 //////////////////////////////
 
    var askedQuestion = [];      //CLR AFTER SUBMIT
-   var possibleAnswers = [];    //CLR AFTER SUBMIT
-
+   var userAnswerID;            //THIS CAN CHANGE
+   
    var userAnswersTEXT = [];  
    var correctAnswersTEXT = [];
 
@@ -40,31 +40,19 @@ var quizTimeSeconds = parseInt(quiz.time_seconds % 60);
    var askedQuestions = []; 
    var userScored = [];
 
-   var currentQuestionID = 0; 
+   var currentQuestionID = 2; 
 
 ////////     FUNCTIONS
 //////////////////////////////
 
 
-function loadQuestion (n){
-      
-   askedQuestion = quiz.questions[n].question;
-   askedQuestions.push(askedQuestion); // assign question to temp array
-
-   quiz.questions[n].answers.forEach(function(element){
-      
-      possibleAnswers.push(element.answer); // assign answers to temp array
-      
-
-      
-   });
-   
-}
-
 function showQuestion(n) {
       
    /////////ONCE FOR QUESTION
    /////////////////////////////
+   
+   askedQuestion = quiz.questions[n].question;
+   askedQuestions.push(askedQuestion);
    
    var createQuestion;
       createQuestion = document.createElement('h3');
@@ -74,49 +62,97 @@ function showQuestion(n) {
    
    document.getElementById('quiz').appendChild(createQuestion);
    
+   document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--default";
+   
    /////////LOOP FOR EACH ANSWER
    /////////////////////////////
    
    quiz.questions[n].answers.forEach(function(element, i){
    
+      //CREATE ANSWER NODES
       var createAnswer;
          i++;
          createAnswer = document.createElement('input');
          createAnswer.type = 'radio';
          createAnswer.setAttribute('name','answer');
          createAnswer.id = 'ans_'+i;
-      document.getElementById('quiz').appendChild(createAnswer);   
+      
 
       var createLabelForAnswer;
          createLabelForAnswer = document.createElement('label');
          createLabelForAnswer.setAttribute('for','ans_'+i );
          createLabelForAnswer.className = "quiz-bar-answer quiz-bar";   
          createLabelForAnswer.innerHTML = element.answer;
+      
+      //APPEND THEM
+      document.getElementById('quiz').appendChild(createAnswer);   
       document.getElementById('quiz').appendChild(createLabelForAnswer);   
       
-         console.log(createAnswer);
-         console.log(createLabelForAnswer);
-
+      //ADD PROPER ONCLICK LISTENER
+      document.getElementById('ans_'+i).addEventListener('click',function(){
+         console.log(i);
+         userAnswerID = i;
+         document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--answer";
+      });
+      
+      //SAVE CORRECT ANSWER FOR STATS
       if(element.correct === true){
             correctAnswersTEXT.push(element.answer);
-            correctAnswersID.push(element.id);  // save correct answer
+            correctAnswersID.push(element.id);  
             console.log("Correct answer : "+element.id);
-         }
-      
-
+         }      
    });
-   
+      
 }
 
-showQuestion(1);
-answerQuestion(1);
 
 
 function answerQuestion (n){
    
-   var answers  = document.getElementsByName('answer');
-   console.log(answers);
+   //////// CHECK IF USER CLICKED ANY ANSWER
+   /////////////////////////////////////////////////
+   
+   if(userAnswerID != null){
+            
+      ////////  CLEAR BOX 
+      ////////  RESET AnswerNo 
+      ////////  ID++
+      ///////////////////////////////
+
+      document.getElementById('quiz').innerHTML = '';
+      userAnswerID = null;
+      currentQuestionID++;
+      
+      document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--default";
+      
+   }else{
+      document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--noanswer";
+   }
+   
+  
 }
 
 console.log();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

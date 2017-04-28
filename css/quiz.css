@@ -48,7 +48,7 @@ label {
 }
 
 .quiz-submit {
-   background-color: #8A8;
+
    background-color: #666;
    /*<<<<<<<*/
    min-height: 60px;
@@ -58,14 +58,11 @@ label {
    /*<<<<<<<*/
    border-top: none;
    text-align: center;
-   transition: 0.1s background-color;
+   transition: 0.3s background-color border-color;
 }
 
 .quiz-submit:hover {
-   background-color: #8D8;
-   background-color: #D88;
-   /*<<<<<<<*/
-   transition: 0.1s background-color;
+   transition: 0.3s background-color border-color;
 }
 
 
@@ -99,4 +96,28 @@ input:checked+label {
 
 .quiz-status-id {
    position: absolute;
+}
+
+/******SUBMIT BUTTON BEHAVIOUR******/
+.quiz-submit--default{   
+   border-bottom: 3px solid #ff3;
+   border-left: 3px solid #ff3;
+   border-right: 3px solid #ff3;
+}
+.quiz-submit--default:hover {   
+   background-color: #D88;
+}
+
+.quiz-submit--answer{
+   border-bottom: 3px solid #3f3;
+   border-left: 3px solid #3f3;
+   border-right: 3px solid #3f3;
+   background-color: #8A8;
+}
+
+.quiz-submit--noanswer{
+   background-color: #D88;
+   border-bottom: 3px solid #a33;   
+   border-left: 3px solid #a33;   
+   border-right: 3px solid #a33;   
 }
