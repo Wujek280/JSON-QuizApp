@@ -43,7 +43,7 @@ var quiz = JSON.parse(readJSON(path));
    var askedQuestions = []; 
    var userScored = [];
 
-   var currentQuestionID = 2; 
+   var currentQuestionID = 0; 
 
 ////////     FUNCTIONS
 //////////////////////////////
@@ -137,6 +137,9 @@ function answerQuestion (n){
       ////////  CLEAR BOX 
       ////////  RESET AnswerNo 
       ////////  ID++
+      ////////  set Submit bar to default CSS
+      ////////  update progress bar
+      ////////  Show nextquestion
       ///////////////////////////////
 
       document.getElementById('quiz').innerHTML = '';
@@ -145,9 +148,14 @@ function answerQuestion (n){
       
       document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--default";
       
+      var progress = currentQuestionID/quizNoOfQuestions ;
+      document.getElementsByTagName('progress')[0].setAttribute('value',progress);
+      
+      showQuestion(currentQuestionID);
+      
    }else{
       //CHANGE STYLE OF SUBMIT BUTTON
-      document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--noanswer";angular      
+      document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--noanswer";     
    }
    
   
