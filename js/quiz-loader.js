@@ -54,6 +54,13 @@ function showQuestion(n) {
    /////////ONCE FOR QUESTION
    /////////////////////////////
    
+
+   
+   //////// UPDATE ID
+   var quizStatusID = 'ID : '+(currentQuestionID+1)+'/'+quizNoOfQuestions;
+   document.getElementsByClassName('quiz-status-id')[0].innerHTML = quizStatusID;
+   
+   /////// PUSH FOR STATS
    askedQuestion = quiz.questions[n].question;
    askedQuestions.push(askedQuestion);
    
