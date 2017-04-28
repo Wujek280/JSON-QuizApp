@@ -1,4 +1,4 @@
-var quiz = {
+var quizJSON = {
   "time_seconds": 300,
   "questions": [
     {
