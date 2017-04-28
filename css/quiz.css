@@ -1,71 +1,102 @@
-/*******DISPLAY CONTROL***********/
-label {
-   display: block;
-}
-
-#quiz-box input {
-   display: none;
-}
-
 /*******MAIN BOX******************/
+
 #quiz-box {
    width: 33%;
    margin: auto;
+   padding-top: 15px;
+}
+
+/*******DISPLAY CONTROL***********/
+
+label {
+   display: block
+}
+
+#quiz-box input {
+   display: none
 }
 
 /********BAR STYLES***************/
+
 .quiz-bar {
    padding: 5px;
    padding-left: 20px;
    color: white;
    background-color: #666;
    border: none;
-   border-left:3px solid orange;
+   border-left: 3px solid orange;
    width: 100%;
    min-height: 40px;
    margin: 5px auto;
-   transition: 0.3s background-color;
 }
 
 .quiz-question {
-   border-left: 3px solid #fff;
+   border: 3px solid #fff;
+   border-bottom: none;
    background-color: #777;
    font-size: 1.1em;
    min-height: 60px;
    text-align: center;
 }
 
-.quiz-answer:hover {
+.quiz-bar-answer:hover {
    background-color: #777;
-   transition: 0.3s background-color ;
    cursor: pointer;
-   border-left:3px solid #dd0;
-   padding-left:20px;
-   /*repeated padding due to border-sizing */ 
+   border-left: 6px solid #dd0;
+   padding-left: 17px;
+   /*repeated padding due to border-sizing */
 }
 
-.quiz-nextButton {
+.quiz-submit {
    background-color: #8A8;
-   transition: 0.3s background-color ;
+   background-color: #666;
+   /*<<<<<<<*/
+   min-height: 60px;
    cursor: pointer;
-   border-left:3px solid #8F8;
+   border: 3px solid #8F8;
+   border: 3px solid #F88;
+   /*<<<<<<<*/
+   border-top: none;
+   text-align: center;
+   transition: 0.1s background-color;
 }
 
-.quiz-nextButton:hover {
-   background-color: #8A8;
-   transition: 0.3s background-color ;
+.quiz-submit:hover {
+   background-color: #8D8;
+   background-color: #D88;
+   /*<<<<<<<*/
+   transition: 0.1s background-color;
 }
+
 
 /********FANCY ONCLICK**********/
-input:checked+label {
-   background-color: #880;
-   border-left:6px solid yellow;
-   padding-left:-1px;
-}
 
 input:checked+label {
    background-color: #880;
-   border-left:8px solid yellow;
-   padding-left:15px;
-   /* make sure last two equals 23px */ 
+   border-left: 8px solid yellow;
+   padding-left: 15px;
+   /* make sure last two equals 23px */
+}
+
+
+/******NAVIGATION BAR **********/
+.quiz-status-progress {
+   width: 100%;
+   display: block;
+   background-color: #0d0;
+}
+
+.quiz-status {
+   position: relative;
+   display: block;
+   width: 100%;
+   min-height: 20px;
+}
+
+.quiz-status-time {
+   float: right;
+}
+
+.quiz-status-id {
+   position: absolute;
 }

@@ -3,7 +3,7 @@ var quiz = {
   "questions": [
     {
       "id": 1,
-      "question": "Obwód trójkata ABC wynosi 20cm. Jaka dlugosc ma podstawa AB?",
+      "question": "Obwód trójkąta ABC wynosi 20cm. Jaką długość ma podstawa AB?",
       "answers": [
         {
           "id": 1,
@@ -18,13 +18,13 @@ var quiz = {
         },
         
         {
-          "id": 1,
+          "id": 3,
           "answer": "0.6 cm",
           "correct": false
         },
         
         {
-          "id": 1,
+          "id": 4,
           "answer": "1.2 cm",
           "correct": false
         }
@@ -32,36 +32,36 @@ var quiz = {
     },
     {
       "id": 2,
-      "question": "356 banknotów stuzlotowych oraz 60 banknotów piecdziesieciozlotowych to:",
+      "question": "356 banknotów stuzłotowych oraz 60 banknotów pięćdziesięciozłotowych to:",
       "answers": [
         {
           "id": 1,
-          "answer": "35 660 zl",
+          "answer": "35 660 zł",
           "correct": false
         },
         
         {
           "id": 2,
-          "answer": "3 560 050 zl",
+          "answer": "3 560 050 zł",
           "correct": false
         },
         
         {
           "id": 3,
-          "answer": "38 600 zl",
+          "answer": "38 600 zł",
           "correct": true
         },
         
         {
           "id": 4,
-          "answer": "3 863 000 zl",
+          "answer": "3 863 000 zł",
           "correct": false
         }
       ]
     },
     {
       "id": 3,
-      "question": "W starozytnym Rzymie wladzy konsulów nie podlegali jedynie:",
+      "question": "W starożytnym Rzymie władzy konsulów nie podlegali jedynie:",
       "answers": [
         {
           "id": 1,
@@ -90,36 +90,36 @@ var quiz = {
     },
     {
       "id": 4,
-      "question": "Gall Anonim idealizowal zmoznosc panstwa polskiego za czasów Boleslawa Chrobrego, gdy zapisywal nastepujace slowa:",
+      "question": "Gall Anonim idealizował zmożność państwa polskiego za czasów Bolesława Chrobrego, gdy zapisywał następujące słowa:",
       "answers": [
         {
           "id": 1,
-          "answer": "Nie godzi sie takiego i tak wielkiego meza, jakby jednego sposród dostojników ksieciem nazywac lub hrabia [...].",
+          "answer": "Nie godzi się takiego i tak wielkiego męża, jakby jednego spośród dostojników księciem nazywać lub hrabią [...].",
           "correct": false
         },
         
         {
           "id": 2,
-          "answer": "Zloto bowiem za jego czasów bylo tak pospolite u wszystkich, jak [dzis] srebro, srebro zas tak tanie jak sloma.",
+          "answer": "Złoto bowiem za jego czasów było tak pospolite u wszystkich, jak [dziś] srebro, srebro zaś tak tanie jak słoma.",
           "correct": true
         },
         
         {
           "id": 3,
-          "answer": "Na korone mego cesarstwa! To, co widze, wieksze jest, niz wiesc glosila!",
+          "answer": "Na koronę mego cesarstwa! To, co widzę, większe jest, niż wieść głosiła!",
           "correct": false
         },
         
         {
           "id": 4,
-          "answer": "[...] hufce przerózne rycerstwa [...] [Boleslaw] rozstawil [...] na obszernej równinie, a poszczególne, z osobna stojace hufce wyrózniala odmienna barwa strojów.",
+          "answer": "[...] hufce przeróżne rycerstwa [...] [Bolesław] rozstawił [...] na obszernej równinie, a poszczególne, z osobna stojące hufce wyrózniała odmienna barwa strojów.",
           "correct": false
         }
       ]
     },
     {
       "id": 5,
-      "question": "Wit Stwosz byl:",
+      "question": "Wit Stwosz był:",
       "answers": [
         {
           "id": 1,
@@ -133,7 +133,7 @@ var quiz = {
         },
         {
           "id": 3,
-          "answer": "Twórca oltarza w kosciele Mariackim w Krakowie",
+          "answer": "Twórcą ołtarza w kościele Mariackim w Krakowie",
           "correct": true
         },
         {
@@ -145,33 +145,33 @@ var quiz = {
     },
     {
       "id": 6,
-      "question": "Alkiny to weglowodory, w których czasteczkach miedzy atomami wegla sa:",
+      "question": "Alkiny to węglowodory, w których cząsteczkach między atomami węgla są:",
       "answers": [
         {
           "id": 1,
-          "answer": "wylacznie pojedyncze wiazania",
+          "answer": "wyłącznie pojedyncze wiązania",
           "correct": false
         },
         {
           "id": 2,
-          "answer": "pojedyncze wiazania i jedno podwójne wiazanie",
+          "answer": "pojedyncze wiązania i jedno podwójne wiązanie",
           "correct": false
         },
         {
           "id": 3,
-          "answer": "pojedyncze wiazania i jedno potrójne wiazanie",
+          "answer": "pojedyncze wiązania i jedno potrójne wiązanie",
           "correct": true
         },
         {
           "id": 4,
-          "answer": "wiazania pojedyncze, jedno podwójne wiazanie i jedno potrójne",
+          "answer": "wiązania pojedyncze, jedno podwójne wiązanie i jedno potrójne",
           "correct": false
         }
       ]
     },
     {
       "id": 7,
-      "question": "Wspólna cecha metanu i oktanu jest:",
+      "question": "Wspólną cechą metanu i oktanu jest:",
       "answers": [
         {
           "id": 1,
@@ -180,53 +180,53 @@ var quiz = {
         },
         {
           "id": 2,
-          "answer": "gestosc",
+          "answer": "gęstość",
           "correct": false
         },
         {
           "id": 3,
-          "answer": "dlugosc lancucha weglowego",
+          "answer": "długość łańcucha węglowego",
           "correct": false
         },
         {
           "id": 4,
-          "answer": "mala reaktywnosc",
+          "answer": "mała reaktywność",
           "correct": true
         }
       ]
     },
     {
       "id": 8,
-      "question": "Który opis dotyczy wlasciwosci ropy naftowej?",
+      "question": "Który opis dotyczy właściwości ropy naftowej?",
       "answers": [
         {
           "id": 1,
-          "answer": "Palna, lepka ciecz o specyficznym zapachu i barwie od jasno do ciemnobrazowej",
+          "answer": "Palna, lepka ciecz o specyficznym zapachu i barwie od jasno do ciemnobrązowej",
           "correct": true
         },
         
         {
           "id": 2,
-          "answer": "palna ciecz, bezbarwna, bez zapachu, nie miesza sie z woda",
+          "answer": "palna ciecz, bezbarwna, bez zapachu, nie miesza się z wodą",
           "correct": false
         },
         
         {
           "id": 3,
-          "answer": "lekko zólta ciecz, niepalna, unosi sie na powierzchni wody",
+          "answer": "lekko żółta ciecz, niepalna, unosi się na powierzchni wody",
           "correct": false
         },
         
         {
           "id": 4,
-          "answer": "palny, bezwonny gaz, z powietrzem tworzy mieszanine wybuchowa",
+          "answer": "palny, bezwonny gaz, z powietrzem tworzy mieszaninę wybuchową",
           "correct": false
         }
       ]
     },
     {
       "id": 9,
-      "question": "Pierwiastki z tej samej grupy ukladu okresowega charakteryzuja sie podobnymi wlasciwosciami, gdyz maja taka sama liczbe:",
+      "question": "Pierwiastki z tej samej grupy układu okresowega charakteryzują się podobnymi właściwościami, gdyż mają taką samą liczbę:",
       "answers": [
         {
           "id": 1,
@@ -245,7 +245,7 @@ var quiz = {
         },
         {
           "id": 4,
-          "answer": "powlok elektronowych",
+          "answer": "powłok elektronowych",
           "correct": false
         }
       ]

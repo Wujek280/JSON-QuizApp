@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     
+	<link href="https://styleguide.brainly.com/77.2.0/style-guide.css" rel="stylesheet"/>
 	<link rel="stylesheet" href="css/style.css">    
-	<link rel="stylesheet" href="css/quiz.css">    
+	<link rel="stylesheet" href="css/quiz.css"> 
+   
 
 	<title>QuizApp</title>
     
@@ -16,17 +18,31 @@
 <body>
     
    <section id="quiz-box">
-      
-       <p class="quiz-question quiz-bar">356 banknotów stuzlotowych oraz 60 banknotów piecdziesieciozlotowych to:</p>
        
+       <nav class="quiz-status">
+        
+          <progress class="quiz-status-progress" value="0.1"></progress>
+          <h4 class="quiz-status-time">timeleft : 12m 34s</h4>
+          <h4 class="quiz-status-id">ID : 4 / 25</h4>
+          <div style="clear:both"></div>
+          
+       </nav>        
+                               
+       <h3 class="quiz-question quiz-bar">
+                              
+          356 banknotów stuzlotowych oraz 60 banknotów piecdziesieciozlotowych to:
+       
+       </h3>
+                   
        <!-- (input[type=radio name=answer id=ans_$]>label[for=ans_$].quiz-answer.quiz-bar{Answer no. $})*4 -->
-       <input type="radio" name="answer" id="ans_1"><label for="ans_1" class="quiz-answer quiz-bar">Answer no. 1</label></input>
-       <input type="radio" name="answer" id="ans_2"><label for="ans_2" class="quiz-answer quiz-bar">Answer no. 2</label></input>
-       <input type="radio" name="answer" id="ans_3"><label for="ans_3" class="quiz-answer quiz-bar">Answer no. 3</label></input>
-       <input type="radio" name="answer" id="ans_4"><label for="ans_4" class="quiz-answer quiz-bar">Answer no. 4</label></input>
+       
+       <input type="radio" name="answer" id="ans_1"><label for="ans_1" class="quiz-bar-answer quiz-bar">35 660 zl</label>
+       <input type="radio" name="answer" id="ans_2"><label for="ans_2" class="quiz-bar-answer quiz-bar">3 560 050 zl</label>
+       <input type="radio" name="answer" id="ans_3"><label for="ans_3" class="quiz-bar-answer quiz-bar">38 600 zl</label>
+       <input type="radio" name="answer" id="ans_4"><label for="ans_4" class="quiz-bar-answer quiz-bar">3 863 000 zl</label>
                 
-      <label class="quiz-nextButton quiz-bar">
-         <input type="button" name="answer" ></input>>>>
+      <label class="quiz-submit quiz-bar">
+         <input type="button" id="submit-button" name="answer" value=">>>">>
       </label>
                              
    </section>    
