@@ -19,11 +19,8 @@ function readJSON(file) {
 
 var quiz = JSON.parse(readJSON(path));
 
-/////////  STATS FOR HEADER 
-//////////////////////////////
-   var quizNoOfQuestions = quiz.questions.length;
-   var quizTimeMinutes = parseInt(quiz.time_seconds / 60);
-   var quizTimeSeconds = parseInt(quiz.time_seconds % 60);
+
+var quizNoOfQuestions = quiz.questions.length;
 
 //////// DYNAMIC VARIABLES
 ///////////////////////////////
@@ -45,19 +42,70 @@ var quiz = JSON.parse(readJSON(path));
 
    var currentQuestionID = 0; 
 
-////////     FUNCTIONS
-//////////////////////////////
+   var endTime;
 
+////////     SETUP FUNCTION
+///////////////////////////////
+
+function setUp() {
+   
+   //////  INVOKE FIRST QUESTION
+   showQuestion(currentQuestionID);
+   
+   var date = new Date();
+   
+   var startTime = date.getTime();
+   
+   endTime = startTime + quiz.time_seconds*1000;
+   
+   var timeLeft = date.getTime() - endTime;
+   
+   timeleftWrite();
+      
+}
+
+function timeleftWrite(){
+   
+   
+setInterval(function(){
+   
+      var timeleft;
+      
+      var date = new Date();
+      var currentTime = date.getTime();
+      
+      timeleft = parseInt((endTime - currentTime )/1000);
+      console.log(timeleft);
+      
+      var quizTimeMinutes = parseInt(timeleft / 60);
+      var quizTimeSeconds = parseInt(timeleft % 60);
+      
+      var timeToShow = 'pozostało : '+quizTimeMinutes+'m '+quizTimeSeconds+'s ';
+      
+      document.getElementsByClassName('quiz-status-time')[0].innerHTML = timeToShow;
+      
+      if (!timeleft){
+         
+/////////////// TIME HAS ENDED
+         /////////////////////
+         
+         console.log('KONIEC');
+         
+      }
+      
+   }, 1000)
+   
+   
+}
+
+///////   FUNCTIONS
+///////////////////////
 
 function showQuestion(n) {
-      
    
    if(currentQuestionID != quizNoOfQuestions)
       {
 
-         console.log("TERMINATE");
-         console.log('answered ID: ');
-         console.log(currentQuestionID+1);
       /////////ONCE FOR QUESTION
       /////////////////////////////   
 
