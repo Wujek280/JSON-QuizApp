@@ -67,7 +67,7 @@ function setUp() {
 function timeleftWrite(){
    
    
-setInterval(function(){
+var timer = setInterval(function(){
    
       var timeleft;
       
@@ -75,7 +75,6 @@ setInterval(function(){
       var currentTime = date.getTime();
       
       timeleft = parseInt((endTime - currentTime )/1000);
-      console.log(timeleft);
       
       var quizTimeMinutes = parseInt(timeleft / 60);
       var quizTimeSeconds = parseInt(timeleft % 60);
@@ -88,6 +87,8 @@ setInterval(function(){
          
 /////////////// TIME HAS ENDED
          /////////////////////
+         
+         clearInterval(timer);
          
          console.log('KONIEC');
          
