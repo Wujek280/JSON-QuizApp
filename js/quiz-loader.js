@@ -55,43 +55,41 @@ function setUp() {
    
    var startTime = date.getTime();
    
-   endTime = startTime + quiz.time_seconds*1000;
+   endTime = startTime + (quiz.time_seconds+1)*1000;
    
    var timeLeft = date.getTime() - endTime;
    
-   timeleftWrite();
+   timer();
       
 }
 
-function timeleftWrite(){
-   
-   
-var timer = setInterval(function(){
-   
-      var timeleft;
-      
-      var date = new Date();
-      var currentTime = date.getTime();
-      
-      timeleft = parseInt((endTime - currentTime )/1000);
-      
-      var quizTimeMinutes = parseInt(timeleft / 60);
-      var quizTimeSeconds = parseInt(timeleft % 60);
-      
-      var timeToShow = 'pozostało : '+quizTimeMinutes+'m '+quizTimeSeconds+'s ';
-      
-      document.getElementsByClassName('quiz-status-time')[0].innerHTML = timeToShow;
-      
-      if (!timeleft){
-         
-/////////////// TIME HAS ENDED
-         /////////////////////         
-         clearInterval(timer);
-         
-         console.log('KONIEC');
-      }
-      
-   }, 1000)
+function timer(){   
+
+   var timer = setInterval(function(){
+
+         var timeleft;
+
+         var date = new Date();
+         var currentTime = date.getTime();
+
+         timeleft = parseInt((endTime - currentTime )/1000);
+
+         var quizTimeMinutes = parseInt(timeleft / 60);
+         var quizTimeSeconds = parseInt(timeleft % 60);
+
+         var timeToShow = 'pozostało : '+quizTimeMinutes+'m '+quizTimeSeconds+'s ';
+
+         document.getElementsByClassName('quiz-status-time')[0].innerHTML = timeToShow;
+
+         if (!timeleft){
+
+   /////////////// TIME HAS ENDED
+            /////////////////////         
+            clearInterval(timer);
+            endOfQuiz();
+         }
+
+      }, 1000)
       
 }
 
@@ -163,7 +161,11 @@ function showQuestion(n) {
                   console.log("Correct answer : "+element.id);
                }      
          });
+   }else{
+      /////INVOKE END OF QUIZ
+      endOfQuiz();
    }
+   
 }
 
 
@@ -218,7 +220,11 @@ function answerQuestion (n){
 }
 
 
-
+function endOfQuiz() { 
+   
+   console.log('KONIEC');
+   
+}
 
 
 
