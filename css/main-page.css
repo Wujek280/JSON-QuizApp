@@ -1,13 +1,22 @@
-.main-header {
+.header {
    width: 300px;
    text-align: center;
 }
-.main-header-nameBox {
-   width: 200px;	
+
+.header-input-name {
+   width: 200px;
    height: 28px;
+   color: #202020;
+   border: ivory solid 1px;
+   border-top: none;
+   background-color: #303030;
+   padding: 3px;
+   color: ivory;
+   text-align: center;
 }
 
-.main-header-yesButton {
+
+.header-button-orange {
    display: block;
    width: 200px;
    height: 28px;
@@ -16,3 +25,10 @@
    margin: auto;
    margin-top: 2ex;
 }
+
+.header-username-label {
+   visibility: hidden;
+   display: block;
+}
+
+
