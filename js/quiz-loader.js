@@ -21,16 +21,19 @@ var quiz = JSON.parse(readJSON(path));
 
 /////////  STATS FOR HEADER 
 //////////////////////////////
-var quizNoOfQuestions = quiz.questions.length;
-var quizTimeMinutes = parseInt(quiz.time_seconds / 60);
-var quizTimeSeconds = parseInt(quiz.time_seconds % 60);
+   var quizNoOfQuestions = quiz.questions.length;
+   var quizTimeMinutes = parseInt(quiz.time_seconds / 60);
+   var quizTimeSeconds = parseInt(quiz.time_seconds % 60);
+
+//////// DYNAMIC VARIABLES
+///////////////////////////////
+   var askedQuestion;      //CLR AFTER SUBMIT
+   var userAnswerID;    
+   var questionAnswerID;
 
 ////////       USER STATS
 //////////////////////////////
 
-   var askedQuestion = [];      //CLR AFTER SUBMIT
-   var userAnswerID;            //THIS CAN CHANGE
-   
    var userAnswersTEXT = [];  
    var correctAnswersTEXT = [];
 
@@ -98,7 +101,7 @@ function showQuestion(n) {
       //SAVE CORRECT ANSWER FOR STATS
       if(element.correct === true){
             correctAnswersTEXT.push(element.answer);
-            correctAnswersID.push(element.id);  
+            questionAnswerID = element.id;     correctAnswersID.push(element.id);  
             console.log("Correct answer : "+element.id);
          }      
    });
@@ -113,6 +116,23 @@ function answerQuestion (n){
    /////////////////////////////////////////////////
    
    if(userAnswerID != null){
+      
+      
+      if(userAnswerID == questionAnswerID)
+      {
+         userScored.push('+');
+      }else{
+         userScored.push('-');
+      }
+      
+      
+      
+      
+      
+      
+      
+      
+      
             
       ////////  CLEAR BOX 
       ////////  RESET AnswerNo 
@@ -126,13 +146,13 @@ function answerQuestion (n){
       document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--default";
       
    }else{
-      document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--noanswer";
+      //CHANGE STYLE OF SUBMIT BUTTON
+      document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--noanswer";angular      
    }
    
   
 }
 
-console.log();
 
 
 
