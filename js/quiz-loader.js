@@ -19,7 +19,6 @@ function readJSON(file) {
 
 var quiz = JSON.parse(readJSON(path));
 
-
 var quizNoOfQuestions = quiz.questions.length;
 
 //////// DYNAMIC VARIABLES
@@ -86,17 +85,14 @@ var timer = setInterval(function(){
       if (!timeleft){
          
 /////////////// TIME HAS ENDED
-         /////////////////////
-         
+         /////////////////////         
          clearInterval(timer);
          
          console.log('KONIEC');
-         
       }
       
    }, 1000)
-   
-   
+      
 }
 
 ///////   FUNCTIONS
@@ -217,8 +213,7 @@ function answerQuestion (n){
    }else{
       //CHANGE STYLE OF SUBMIT BUTTON
       document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--noanswer";     
-   }
-   
+   }   
   
 }
 
