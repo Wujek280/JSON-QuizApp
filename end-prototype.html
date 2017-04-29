@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    
+	<link href="https://styleguide.brainly.com/77.2.0/style-guide.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="css/style.css">    
+	<link rel="stylesheet" href="css/quiz.css"> 
+   
+
+	<title>ProQuizApp</title>
+    
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<!-- <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"> -->
+</head>
+
+<body onload="setUp()">
+    
+   <section id="quiz-box">
+       
+       <nav class="quiz-status">
+        
+          <progress class="quiz-status-progress" value="0.0"></progress>
+          <h4 class="quiz-status-time">1</h4>
+          <h4 class="quiz-status-id">2</h4>
+          <div style="clear:both"></div>
+          
+       </nav>        
+       
+       <div id="quiz"></div>
+      
+
+
+   <table class="quiz-table">
+      <tr>
+         <th>ASKED QUESTION</th>
+         <th>CORRECT ANSWER</th>
+         <th>USER ANSWER</th>
+         <th>USER SCORED</th>
+      </tr>
+      <tr>
+         <td>col1</td>
+         <td>col2</td>
+         <td>col3</td>
+         <td>col4</td>
+      </tr>
+      <tr>
+         <td>col1</td>
+         <td>col2</td>
+         <td>col3</td>
+         <td>col4</td>
+      </tr>
+            <tr>
+         <td>col1</td>
+         <td>col2</td>
+         <td>col3</td>
+         <td>col4</td>
+      </tr>
+      <tr>
+         <td>col1</td>
+         <td>col2</td>
+         <td>col3</td>
+         <td>col4</td>
+      </tr>
+      
+   </table>   
+
+
+<!--
+       <label class="quiz-submit quiz-bar" id="quiz-submit-label"><input type="button" id="submit-button" name="submit" onclick="answerQuestion(currentQuestionID);" value="   ">
+       </label>
+-->
+                             
+   </section>    
+
+<!--   <script src="js/quiz.json"></script>	-->
+   <script src="js/quiz-loader.js"></script>	
+    
+</body>
+</html>
+       <!-- (input[type=radio name=answer id=ans_$]>label[for=ans_$].quiz-answer.quiz-bar{Answer no. $})*4 -->
