@@ -134,6 +134,8 @@ input:checked+label {
 
 .quiz-table {
    text-align: center;
+   font-size: 0.6em;
+   vertical-align: middle;
 }
 
 th {

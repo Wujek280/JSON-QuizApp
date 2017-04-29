@@ -55,7 +55,7 @@ function setUp() {
    
    var startTime = date.getTime();
    
-   endTime = startTime + 1*1000;
+   endTime = startTime + 30*1000;
    //(quiz.time_seconds+1)
    var timeLeft = date.getTime() - endTime;
    
@@ -236,33 +236,60 @@ function endOfQuiz() {
    
    
    var TableHeaders = [ 'ASKED QUESTION', 'CORRECT ANSWER', 'USER ANSWER', 'USER SCORED'];
-    
+   
+   
+   
    var numberOfColumns = TableHeaders.length;
    var table = document.createElement('table');
    table.className = 'quiz-table';
    document.getElementById("quiz-box").appendChild(table);
    
    
-  Array.prototype.Tabloid = function(anchor){this.forEach(function(element, index){
+    Array.prototype.Tabloid = function(anchor){this.forEach(function(element, index){
+
+      if(index == 0){   
+         var tr = document.createElement('tr');
+         console.log(tr);
+         document.getElementsByClassName(anchor)[0].appendChild(tr);
+
+      }
+         var th = document.createElement('th');
+         th.innerHTML = element;
+
+         document.getElementsByClassName(anchor)[0].appendChild(th);
+
+      });   
+   }
+  
+   TableHeaders.Tabloid('quiz-table');
    
-         if(index == 0){   
-            var tr = document.createElement('tr');
-            console.log(tr);
-            document.getElementsByClassName(anchor)[0].appendChild(tr);
-            
-         }
-            var th = document.createElement('th');
-            th.innerHTML = element;
-         
-            document.getElementsByTagName('tr')[0].appendChild(th);
-               
-   });
-                                      }
-TableHeaders.Tabloid('quiz-table');
+   
+   for(var i=0; i<quizNoOfQuestions; i++){
+      var row = [];
+      row.push(askedQuestions[i]);
+      row.push(correctAnswersTEXT[i]);
+      row.push(userAnswersTEXT[i]);
+      row.push(userScored[i]);
+      row.Tabloid('quiz-table');
+   }
+   
    
    
    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
