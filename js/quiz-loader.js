@@ -1,12 +1,29 @@
+///////////////////////////////////////
 /////////    VANILLA JS
-////////////////////////////////
+//////////////////////////////////////
 
 'use strict';
 
-/////////OBTAINING QUIZ FROM URL
-////////////////////////////////
+//////////////////////////////////////
+/////////   OBTAINING QUIZ FROM URL
+/////////////////////////////////////
 
 var path = 'https://cdn.rawgit.com/kdzwinel/cd08d08002995675f10d065985257416/raw/811ad96a0567648ff858b4f14d0096ba241f28ef/quiz-data.json';
+
+
+   //////////////////////////////////
+   //
+   // (•_•)
+   //<)   )╯ 'Cause I just wanna copy and paste
+   // /    \
+   //  (•_•)
+   // <(   (>   copy and paste
+   //  /    \
+   //    (•_•)        (•_•)
+   //  <)   (>  uh    <)   (>     huh
+   //   /    \        /    \
+   //
+   ///////////////////////////////////
 
 
 function readJSON(file) {
@@ -21,16 +38,18 @@ var quiz = JSON.parse(readJSON(path));
 
 var quizNoOfQuestions = quiz.questions.length;
 
+/////////////////////////////////
 //////// DYNAMIC VARIABLES
-///////////////////////////////
+/////////////////////////////////
    var askedQuestion;       //CLR AFTER SUBMIT
    var userAnswerID;    
    var questionAnswerID;
 
+//////////////////////////////////
 ////////       USER STATS
-//////////////////////////////
+//////////////////////////////////
 
-   var userAnswersTEXT = [];  
+   var userAnswersTEXT = [];
    var correctAnswersTEXT = [];
 
    var userAnswersID = [];
@@ -43,8 +62,9 @@ var quizNoOfQuestions = quiz.questions.length;
 
    var endTime;
 
+//////////////////////////////////
 ////////     SETUP FUNCTION
-///////////////////////////////
+//////////////////////////////////
 
 function setUp() {
    
@@ -76,15 +96,19 @@ function timer(){
 
          var quizTimeMinutes = parseInt(timeleft / 60);
          var quizTimeSeconds = parseInt(timeleft % 60);
-
+      
+         if (quizTimeSeconds < 10) {
+            quizTimeSeconds = '0'+quizTimeSeconds;
+         }
+      
          var timeToShow = 'pozostało : '+quizTimeMinutes+'m '+quizTimeSeconds+'s ';
 
          document.getElementsByClassName('quiz-status-time')[0].innerHTML = timeToShow;
 
          if (!timeleft){
-
-   /////////////// TIME HAS ENDED
-            /////////////////////         
+////////////////////////////////////////////
+   ///////// TIME HAS ENDED/////////////
+      //////////////////////////////     
             clearInterval(timer);
             endOfQuiz();
          }
@@ -92,24 +116,27 @@ function timer(){
       }, 1000)
       
 }
-
-///////   FUNCTIONS
-///////////////////////
+///////////////////////////
+/////////   FUNCTIONS  ///
+//////////////////////////
 
 function showQuestion(n) {
    
    if(currentQuestionID != quizNoOfQuestions)
       {
-
-      /////////ONCE FOR QUESTION
-      /////////////////////////////   
-
+         
+        //////////////////////////////////
+       /////////  ONCE FOR QUESTION  /////
+      ///////////////////////////////////   
 
          //////// UPDATE ID
-         var quizStatusID = 'ID : '+(currentQuestionID+1)+'/'+quizNoOfQuestions;
+         //////////////////
+         var quizStatusID = 
+             'ID : '+(currentQuestionID+1)+'/'+quizNoOfQuestions;
          document.getElementsByClassName('quiz-status-id')[0].innerHTML = quizStatusID;
 
-         /////// PUSH FOR STATS
+         /////// PUSH TO STATS
+         /////////////////////
          askedQuestion = quiz.questions[n].question;
          askedQuestions.push(askedQuestion);
 
@@ -122,13 +149,13 @@ function showQuestion(n) {
          document.getElementById('quiz').appendChild(createQuestion);
 
          document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--default";
-
-      /////////LOOP FOR EACH ANSWER
-      /////////////////////////////
+       ////////////////////////////////
+      /////////LOOP FOR EACH ANSWER///
+      ///////////////////////////////
 
          quiz.questions[n].answers.forEach(function(element, i){
 
-            //CREATE ANSWER NODES
+            //CREATE ANSWER NODES//
             var createAnswer;
                i++;
                createAnswer = document.createElement('input');
@@ -143,11 +170,11 @@ function showQuestion(n) {
                createLabelForAnswer.className = "quiz-bar-answer quiz-bar";   
                createLabelForAnswer.innerHTML = element.answer;
 
-            //APPEND THEM
+            //APPEND THEM//
             document.getElementById('quiz').appendChild(createAnswer);   
             document.getElementById('quiz').appendChild(createLabelForAnswer);   
 
-            //ADD PROPER ONCLICK LISTENER
+            //ADD PROPER ONCLICK LISTENER//
             document.getElementById('ans_'+i).addEventListener('click',function(){
                console.log(i);
                userAnswerID = i;
@@ -162,17 +189,17 @@ function showQuestion(n) {
                }      
          });
    }else{
-      /////INVOKE END OF QUIZ
+      /////INVOKE END OF QUIZ///
       endOfQuiz();
+      /////////////////////////
    }
    
 }
 
 
-
 function answerQuestion (n){
-      
-   //////// CHECK IF USER CLICKED ANY ANSWER
+     ////////////////////////////////////////////////  
+    //////// CHECK IF USER CLICKED ANY ANSWER
    /////////////////////////////////////////////////
    
    if(userAnswerID != null){
@@ -219,33 +246,37 @@ function answerQuestion (n){
   
 }
 
-
+////////////////////////////////////////////////////////
 function endOfQuiz() { 
    
    console.log('KONIEC');
    
    /// UPDATE HEADER
-   var header = '<h2> Header po zakonczeniu </h2>';
+   /////////////////
+   var header = '<h2> FEEDBACK SCREEN </h2>';
    document.getElementsByClassName('quiz-status')[0].innerHTML = header;
    
    ///QUIZ OFF
+   ////////////////
    document.getElementById("quiz").innerHTML = '';
    
    ///SUBMIT OFF
+   ///////////////
    document.getElementById("quiz-submit-label").outerHTML = '';
    
    
    var TableHeaders = [ 'ASKED QUESTION', 'CORRECT ANSWER', 'USER ANSWER', 'USER SCORED'];
-   
-   
-   
+      
    var numberOfColumns = TableHeaders.length;
    var table = document.createElement('table');
    table.className = 'quiz-table';
    document.getElementById("quiz-box").appendChild(table);
    
+   ////////////////////////////
+   //////FANCY ARRAY PROTOTYPE
+   ///////////////////////////
    
-    Array.prototype.Tabloid = function(anchor){this.forEach(function(element, index){
+    Array.prototype.Tabloid = function(anchor, rows){this.forEach(function(element, index){
 
       if(index == 0){   
          var tr = document.createElement('tr');
@@ -262,8 +293,7 @@ function endOfQuiz() {
    }
   
    TableHeaders.Tabloid('quiz-table');
-   
-   
+      
    for(var i=0; i<quizNoOfQuestions; i++){
       var row = [];
       row.push(askedQuestions[i]);
@@ -272,9 +302,6 @@ function endOfQuiz() {
       row.push(userScored[i]);
       row.Tabloid('quiz-table');
    }
-   
-   
-   
    
 }
 

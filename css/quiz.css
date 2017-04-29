@@ -134,14 +134,17 @@ input:checked+label {
 
 .quiz-table {
    text-align: center;
-   font-size: 0.6em;
+   font-size: 0.8em;
    vertical-align: middle;
 }
 
 th {
-   background-color: #77a;
+   background-color: #555;
 }
 
-tr:nth-child(odd) {
-   background-color: #779;
-}
+th:nth-child(10n+0) {background-color: #779}
+th:nth-child(10n+1) {background-color: #779}
+th:nth-child(10n+2) {background-color: #779}
+th:nth-child(10n+3) {background-color: #779}
+th:nth-child(10n+4) {background-color: #779}
+th:nth-child(10n+5) {background-color: #779}

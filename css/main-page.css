@@ -1,3 +1,7 @@
+#index-header-container {
+	margin: 30px auto;
+}
+
 .header {
    width: 300px;
    text-align: center;
@@ -13,6 +17,7 @@
    padding: 3px;
    color: ivory;
    text-align: center;
+   letter-spacing: 2px;
 }
 
 
@@ -22,8 +27,12 @@
    height: 28px;
    text-align: center;
    background-color: orange;
+   border-radius: 3px;
+   color:black;
    margin: auto;
-   margin-top: 2ex;
+   margin-top: 3ex;
+   letter-spacing: 2px;
+   font-weight: bold;
 }
 
 .header-username-label {
