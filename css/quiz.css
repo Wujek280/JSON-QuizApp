@@ -84,7 +84,7 @@ input:checked+label {
 .quiz-status-progress {
    width: 100%;
    display: block;
-   background-color: #0d0;
+   background-color: #777;
 }
 
 .quiz-status {
