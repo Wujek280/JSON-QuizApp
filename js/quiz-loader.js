@@ -308,19 +308,18 @@ function endOfQuiz(timeLeft) {
    
    
    /////////////////////////////////////////////////////
-   /////////////////////////////////////////////////////
-   /////////////////////////////////////////////////////
+   /////////////////////        ////////////////////////
+   ///////////////                   ///////////////////
    answers.forEach(function(element){
    
-      console.log(element);
-      
+      //// CREATE ELEMENTS 
       var div = document.createElement('div');
 
       if(element.userScored == '+'){
          div.className = 'feedback--good';         
       }else{
          div.className = 'feedback--bad';
-      }      
+      }
 
       var hr = document.createElement('hr');
 
@@ -328,10 +327,13 @@ function endOfQuiz(timeLeft) {
       var p2 = document.createElement('p');
       var p3 = document.createElement('p');
       
+      //// ASSIGN VALUES 
       p1.innerHTML = element.id+'. '+element.question ;
       p2.innerHTML = ' >'+element.userAnswer;
       p3.innerHTML = ' >'+element.correctAnswer;
       
+      
+      //// APPEND
       div.append(p1);
       if(element.userScored == '-'){
          p2.className = 'feedback-p--crossed';
@@ -346,8 +348,8 @@ function endOfQuiz(timeLeft) {
       Container.append(div);
             
    });
-   ////////////////////////////////////////////////////
-   ////////////////////////////////////////////////////
+   ///////////////                 ////////////////////
+   ////////////////////      //////////////////////////
    ////////////////////////////////////////////////////
    
   
