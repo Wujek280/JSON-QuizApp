@@ -132,19 +132,12 @@ input:checked+label {
 
 /********END**********/
 
-.quiz-table {
-   text-align: center;
-   font-size: 0.8em;
-   vertical-align: middle;
+.feedback--good{
+   
 }
-
-th {
-   background-color: #555;
+.feedback--bad{
+   
 }
-
-th:nth-child(10n+0) {background-color: #779}
-th:nth-child(10n+1) {background-color: #779}
-th:nth-child(10n+2) {background-color: #779}
-th:nth-child(10n+3) {background-color: #779}
-th:nth-child(10n+4) {background-color: #779}
-th:nth-child(10n+5) {background-color: #779}
+.feedback-p--crossed{
+   
+}
