@@ -10,7 +10,6 @@
 
 var path = 'https://cdn.rawgit.com/kdzwinel/cd08d08002995675f10d065985257416/raw/811ad96a0567648ff858b4f14d0096ba241f28ef/quiz-data.json';
 
-var timerMilisecondsRefresh = 1000;
 
    //////////////////////////////////
    //
@@ -40,31 +39,28 @@ var quiz = JSON.parse(readJSON(path));
 var quizNoOfQuestions = quiz.questions.length;
 
 /////////////////////////////////
-////////       VARIABLES
+//////// DYNAMIC VARIABLES
 /////////////////////////////////
-
-   var userAnswerID;      //
-   var questionAnswerID; // compare ID's
-   var userAnswer; 
-   var questionAnswer; 
-   var userScored;
-
-   var currentQuestionID = 0; 
-   var endTime;
+   var askedQuestion;       //CLR AFTER SUBMIT
+   var userAnswerID;    
+   var questionAnswerID;
 
 //////////////////////////////////
 ////////       USER STATS
 //////////////////////////////////
 
-var answers = [];
+   var userAnswersTEXT = [];
+   var correctAnswersTEXT = [];
 
-var Answer = function(id, question, correct, user, scored){
-   this.id = id;
-   this.question = question;
-   this.correctAnswer = correct;
-   this.userAnswer = user;
-   this.userScored = scored;
-};
+   var userAnswersID = [];
+   var correctAnswersID = [];
+
+   var askedQuestions = []; 
+   var userScored = [];
+
+   var currentQuestionID = 0; 
+
+   var endTime;
 
 //////////////////////////////////
 ////////     SETUP FUNCTION
@@ -79,7 +75,7 @@ function setUp() {
    
    var startTime = date.getTime();
    
-   endTime = startTime + 5*1000;
+   endTime = startTime + 30*1000;
    //(quiz.time_seconds+1)
    var timeLeft = date.getTime() - endTime;
    
@@ -107,20 +103,17 @@ function timer(){
       
          var timeToShow = 'pozostało : '+quizTimeMinutes+'m '+quizTimeSeconds+'s ';
 
-     /////////////////////////////////
-         if (!timeleft){
-            
-            clearInterval(timer);
-            endOfQuiz(true);
-            
-         }else{
-            
-            document.getElementsByClassName('quiz-status-time')[0].innerHTML = timeToShow;
-            
-         }
-     /////////////////////////////////
+         document.getElementsByClassName('quiz-status-time')[0].innerHTML = timeToShow;
 
-      }, timerMilisecondsRefresh)
+         if (!timeleft){
+////////////////////////////////////////////
+   ///////// TIME HAS ENDED/////////////
+      //////////////////////////////     
+            clearInterval(timer);
+            endOfQuiz();
+         }
+
+      }, 1000)
       
 }
 ///////////////////////////
@@ -142,7 +135,10 @@ function showQuestion(n) {
              'ID : '+(currentQuestionID+1)+'/'+quizNoOfQuestions;
          document.getElementsByClassName('quiz-status-id')[0].innerHTML = quizStatusID;
 
-
+         /////// PUSH TO STATS
+         /////////////////////
+         askedQuestion = quiz.questions[n].question;
+         askedQuestions.push(askedQuestion);
 
          var createQuestion;
             createQuestion = document.createElement('h3');
@@ -182,15 +178,14 @@ function showQuestion(n) {
             document.getElementById('ans_'+i).addEventListener('click',function(){
                console.log(i);
                userAnswerID = i;
-               userAnswer = document.getElementsByTagName('label')[userAnswerID-1].innerHTML;
                document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--answer";
             });
 
-            //SAVE CORRECT ANSWER ID and TXT FOR STATS
+            //SAVE CORRECT ANSWER FOR STATS
             if(element.correct === true){
-               
-               questionAnswerID = element.id ;
-               console.log("Correct answer : "+element.answer);
+                  correctAnswersTEXT.push(element.answer);
+                  questionAnswerID = element.id;     correctAnswersID.push(element.id);  
+                  console.log("Correct answer : "+element.id);
                }      
          });
    }else{
@@ -202,80 +197,66 @@ function showQuestion(n) {
 }
 
 
-function answerQuestion(n){
+function answerQuestion (n){
+     ////////////////////////////////////////////////  
+    //////// CHECK IF USER CLICKED ANY ANSWER
+   /////////////////////////////////////////////////
    
-   ///PROCEED IF USER GAVE ANY ANSWER
    if(userAnswerID != null){
       
+      ///// PUSH ID TO ARRAY
+      userAnswersID.push(userAnswerID);
       
-      ///SCAN FOR CORRECT ANSWER AND SAVE
-      //////////////////////////////////
-      quiz.questions[n].answers.forEach(function(element){
-            if(element.correct == true){
-               questionAnswer = element.answer;
-            }
-      });
-      
-      ///SAVE USER ANSWER AS TXT
-      var userAnswer = quiz.questions[n].answers[userAnswerID-1];
-
-      ///// IF USER SCORED +/- THEN RESET TO null
-      if(userAnswer.correct)
+      ///// PUSH IF YOU SCORED OR NOT
+      if(userAnswerID == questionAnswerID)
       {
-         userScored = '+';
+         userScored.push('+');
       }else{
-         userScored = '-';
+         userScored.push('-');
       }
+      
+      ///// PUSH TEXT YOU ANSWERED
+      var useranswer = document.getElementsByTagName('label')[userAnswerID-1].innerHTML;
+      userAnswersTEXT.push(useranswer);
+         
+            
+      ////////  CLEAR BOX 
+      ////////  RESET AnswerNo 
+      ////////  ID++
+      ////////  set Submit bar to default CSS
+      ////////  update progress bar
+      ////////  Show nextquestion
+      ///////////////////////////////
+
+      document.getElementById('quiz').innerHTML = '';
       userAnswerID = null;
-      
-      
-      ///ROLL QUESTIONS
       currentQuestionID++;
       
-      ///UPDATE CLASS OF BAR TO DEFAULT
       document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--default";
       
-      ///UPDATE PROGRESS BAR
       var progress = currentQuestionID/quizNoOfQuestions ;
-      document.getElementsByTagName('progress')[0].setAttribute('value', progress);
+      document.getElementsByTagName('progress')[0].setAttribute('value',progress);
       
-      ///CLEAR QUIZ AND SHOW NEXT
-      document.getElementById('quiz').innerHTML = '';
       showQuestion(currentQuestionID);
       
    }else{
-      ///CHANGE STYLE OF SUBMIT BUTTON IF NO ANSWER WERE GIVEN
-      document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--noanswer";
+      //CHANGE STYLE OF SUBMIT BUTTON
+      document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--noanswer";     
    }   
-   
-   //////////////////////////////////////////////////////////////////////////////////////////////
-   /// PUSH AS NEW OBJECT IN ANSWER ARRAY 
-   
-   var ans = new Answer(
-      currentQuestionID,
-      quiz.questions[n].question,
-      questionAnswer,
-      userAnswer.answer,
-      userScored
-   );
-   answers.push(ans);
-   
-   ////
-   //////////////////////////////////////////////////////////////////////////////////////////////
-
+  
 }
 
-function endOfQuiz(timeLeft) { 
+////////////////////////////////////////////////////////
+function endOfQuiz() { 
    
-   if(timeLeft === false) console.log('KONIEC CZASU');
-   else console.log('KONIEC');
+   console.log('KONIEC');
    
    /// UPDATE HEADER
    /////////////////
    var header = '<h2> FEEDBACK SCREEN </h2>';
    document.getElementsByClassName('quiz-status')[0].innerHTML = header;
    
-   ///QUIZ DETATCH
+   ///QUIZ OFF
    ////////////////
    document.getElementById("quiz").innerHTML = '';
    
@@ -283,74 +264,45 @@ function endOfQuiz(timeLeft) {
    ///////////////
    document.getElementById("quiz-submit-label").outerHTML = '';
    
-   ////////////////////////
-   ////CREATE TABLE
-   ////////////////////////
    
+   var TableHeaders = [ 'ASKED QUESTION', 'CORRECT ANSWER', 'USER ANSWER', 'USER SCORED'];
+      
+   var numberOfColumns = TableHeaders.length;
    var table = document.createElement('table');
    table.className = 'quiz-table';
+   document.getElementById("quiz-box").appendChild(table);
    
+   ////////////////////////////
+   //////FANCY ARRAY PROTOTYPE
+   ///////////////////////////
    
-   var Container = document.getElementById("quiz-box");
-   Container.innerHTML = '';
-   
-   /////////////////////////////////////////////////////
-   /////////////////////////////////////////////////////
-   /////////////////////////////////////////////////////
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   /////////////////////////////////////////////////////
-   /////////////////////////////////////////////////////
-   /////////////////////////////////////////////////////
-   answers.forEach(function(element){
-   
-      console.log(element);
-      
-      var div = document.createElement('div');
+    Array.prototype.Tabloid = function(anchor, rows){this.forEach(function(element, index){
 
-      if(element.userScored == '+'){
-         div.className = 'feedback--good';         
-      }else{
-         div.className = 'feedback--bad';
-      }      
+      if(index == 0){   
+         var tr = document.createElement('tr');
+         console.log(tr);
+         document.getElementsByClassName(anchor)[0].appendChild(tr);
 
-      var hr = document.createElement('hr');
-
-      var p1 = document.createElement('p');
-      var p2 = document.createElement('p');
-      var p3 = document.createElement('p');
-      
-      p1.innerHTML = element.id+'. '+element.question ;
-      p2.innerHTML = ' >'+element.userAnswer;
-      p3.innerHTML = ' >'+element.correctAnswer;
-      
-      div.append(p1);
-      if(element.userScored == '-'){
-         p2.className = 'feedback-p--crossed';
-         div.append(p2);         
-         div.append(p3);
-      }else{
-         div.append(p2);
       }
-      
-      div.append(hr);
-      
-      Container.append(div);
-            
-   });
-   ////////////////////////////////////////////////////
-   ////////////////////////////////////////////////////
-   ////////////////////////////////////////////////////
-   
+         var th = document.createElement('th');
+         th.innerHTML = element;
+
+         document.getElementsByClassName(anchor)[0].appendChild(th);
+
+      });   
+   }
   
+   TableHeaders.Tabloid('quiz-table');
+      
+   for(var i=0; i<quizNoOfQuestions; i++){
+      var row = [];
+      row.push(askedQuestions[i]);
+      row.push(correctAnswersTEXT[i]);
+      row.push(userAnswersTEXT[i]);
+      row.push(userScored[i]);
+      row.Tabloid('quiz-table');
+   }
+   
 }
 
 
