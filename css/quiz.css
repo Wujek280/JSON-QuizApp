@@ -136,6 +136,7 @@ li{
 }
 
 .feedback{
+   position: relative;
    padding: 5px;
    padding-left: 10px;
    border-left: 3px solid white;
@@ -143,15 +144,18 @@ li{
    width: 100%;
    min-height: 100px;
    background-color: #303030;
-
 }
 
-.feedback--good{
+.feedback-header{
+   background-color: #777;
+}
+
+.feedback-answer--good{
    background-color: #307030;
    border-color: green;
 }
 
-.feedback--bad{
+.feedback-answer--bad{
    background-color: #703030;
    border-color: red;
 }
@@ -160,6 +164,26 @@ li{
    text-decoration: line-through;
    color:red;
 }
+
 .feedback-p{
    color:green;
+}
+
+.feedback-points{
+   text-align: center;
+   margin:0;
+   padding-top: 33px;
+   position:relative;
+   width:100px;
+   height:100px;
+   float:right;
+   font-size:48px;
+}
+
+.feedback-points--good{
+   color: green;
+}
+
+.feedback-points--bad{
+   color: red;
 }
