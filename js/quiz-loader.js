@@ -48,6 +48,7 @@ var quizNoOfQuestions = quiz.questions.length;
    var userAnswer; 
    var questionAnswer; 
    var userScored;
+   var totalScore = 0;
 
    var currentQuestionID = 0; 
    var endTime;
@@ -225,6 +226,7 @@ function answerQuestion(n){
       if(userAnswer.correct)
       {
          userScored = '+';
+         totalScore++;
       }else{
          userScored = '-';
       }
@@ -296,44 +298,73 @@ function endOfQuiz(timeLeft) {
    /////////////////////////////////////////////////////
    /////////////////////////////////////////////////////
    /////////////////////////////////////////////////////
+
+   var div = document.createElement('div');
+   div.className = 'feedback feedback-header';
+   div.innerHTML = 'FEEDBACK SCREEN TEMP';
+
+   Container.appendChild(div);
+
+   var currentDiv = document.getElementsByTagName('div')[0];
+   var totPoints = document.createElement('p');
+   totPoints.className = 'feedback-points';
+   totPoints.innerHTML = totalScore;
+   currentDiv.appendChild(totPoints);
+
+
+   currentDiv.appendChild(totPoints);
+
        
    /////////////////////////////////////////////////////
    /////////////////////        ////////////////////////
    ///////////////                   ///////////////////
-   answers.forEach(function(element){
+   answers.forEach(function(element, index){
    
       //// CREATE DIV FOR EACH QUESTION 
       var div = document.createElement('div');
 
       //// ADD PROPER CSS CLASS
       if(element.userScored == '+'){
-         div.className = 'feedback feedback--good';         
+         div.className = 'feedback feedback-answer--good';         
       }else{
-         div.className = 'feedback feedback--bad';
+         div.className = 'feedback feedback-answer--bad';
       }
 
-      //// APPEND DIV
+      //// APPEND DIV AND CHOOSE CURRENT DIV
       Container.appendChild(div);
-      var currentDiv = Container.getElementsByTagName('div')[0];
+      var currentDiv = Container.getElementsByTagName('div')[index +1];
 
+      //// CREATE PARAGRAPHS FOR FEEDBACK DIV
       var parQuestion = document.createElement('p');
+      var parPoints = document.createElement('p');
       var parUserAnswer = document.createElement('li');
       var parCorrectAnswer = document.createElement('li');
       
       //// ASSIGN VALUES 
       parQuestion.innerHTML = element.id+'. '+element.question ;
+      parPoints.innerHTML = '0';
       parUserAnswer.innerHTML = ' '+element.userAnswer;
       parCorrectAnswer.innerHTML = ' '+element.correctAnswer;
       
       
-      //// APPEND (line 329)
-      currentDiv.appendChild(parQuestion);
-
+      //// SET OF APPENDS
+      
       if(element.userScored == '-'){
+
          parUserAnswer.className = 'feedback-p--crossed';
+         parPoints.className = 'feedback-points feedback-points--bad';
+         currentDiv.appendChild(parPoints);
+         currentDiv.appendChild(parQuestion);
          currentDiv.appendChild(parUserAnswer);         
          currentDiv.appendChild(parCorrectAnswer);
+
       }else{
+
+         parPoints.innerHTML = '+1';
+         parPoints.className = 'feedback-points feedback-points--good';
+
+         currentDiv.appendChild(parPoints);
+         currentDiv.appendChild(parQuestion);
          currentDiv.appendChild(parUserAnswer);
       }
       
