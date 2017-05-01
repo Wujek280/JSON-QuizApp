@@ -1,3 +1,21 @@
+/*******GENERAL SYTLES******************/
+
+
+body {   
+   color: #fff;
+   background-color: #303030;
+   min-width: 320px;
+}
+
+a{
+   text-decoration: none;
+}
+
+input:focus{
+    outline: none;
+}
+
+
 /*******MAIN BOX******************/
 
 #quiz-box {
@@ -5,7 +23,6 @@
    margin: auto;
    padding-top: 15px;
 }
-
 
 /*******DISPLAY CONTROL***********/
 
@@ -16,7 +33,6 @@ label {
 #quiz-box input {
    display: none
 }
-
 
 /********BAR STYLES***************/
 
@@ -133,11 +149,13 @@ input:checked+label {
 /********FEEDBACK SCREEN**********/
 li{
    margin-left: 10px;
+   font-weight: bold;
+   list-style-type: none;
 }
 
 .feedback{
    position: relative;
-   padding: 5px;
+   padding: 10px;
    padding-left: 10px;
    border-left: 3px solid white;
    margin: 5px 0;
@@ -181,7 +199,7 @@ li{
 }
 
 .feedback-points--good{
-   color: green;
+   color: white;
 }
 
 .feedback-points--bad{
