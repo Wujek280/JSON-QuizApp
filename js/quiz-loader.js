@@ -85,7 +85,7 @@ function setUp() {
    
    var startTime = date.getTime();
    
-   endTime = startTime + 60*1000;
+   endTime = startTime + 3600*1000;
    //(quiz.time_seconds+1)
    timeLeft = date.getTime() - endTime;
    
@@ -244,8 +244,11 @@ function answerQuestion(n){
       showQuestion(currentQuestionID);
       
    }else{
-      ///CHANGE STYLE OF SUBMIT BUTTON IF NO ANSWER WERE GIVEN
+      ///CHANGE STYLE OF SUBMIT BUTTON IF NO ANSWER WERE GIVEN AND RESET AFTER 500ms
       document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--noanswer";
+      setTimeout(function(){
+         document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--default";
+      },500)
    }   
    
    //////////////////////////////////////////////////////////////////////////////////////////////
