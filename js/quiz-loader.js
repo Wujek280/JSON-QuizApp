@@ -10,8 +10,6 @@
 
 var path = 'https://cdn.rawgit.com/kdzwinel/cd08d08002995675f10d065985257416/raw/811ad96a0567648ff858b4f14d0096ba241f28ef/quiz-data.json';
 
-var timerMilisecondsRefresh = 1000;
-
    //////////////////////////////////
    //
    // (•_•)
@@ -38,6 +36,7 @@ function readJSON(file) {
 var quiz = JSON.parse(readJSON(path));
 
 var quizNoOfQuestions = quiz.questions.length;
+var questionsLeft = quizNoOfQuestions -1; 
 
 /////////////////////////////////
 ////////       VARIABLES
@@ -52,6 +51,8 @@ var quizNoOfQuestions = quiz.questions.length;
 
    var currentQuestionID = 0; 
    var endTime;
+
+   var timeLeft;
 
 //////////////////////////////////
 ////////       USER STATS
@@ -84,9 +85,9 @@ function setUp() {
    
    var startTime = date.getTime();
    
-   endTime = startTime + 5*1000;
+   endTime = startTime + 60*1000;
    //(quiz.time_seconds+1)
-   var timeLeft = date.getTime() - endTime;
+   timeLeft = date.getTime() - endTime;
    
    timer();
       
@@ -94,39 +95,34 @@ function setUp() {
 
 function timer(){   
 
-   var timer = setInterval(function(){
+   //// USES GLOBAL TIMELEFT
+   if(timeLeft){
+      var timer = setInterval(function(){
+            var date = new Date();
+            var currentTime = date.getTime();
 
-         var timeleft;
+            timeLeft = parseInt((endTime - currentTime )/1000);
 
-         var date = new Date();
-         var currentTime = date.getTime();
+            var quizTimeMinutes = parseInt(timeLeft / 60);
+            var quizTimeSeconds = parseInt(timeLeft % 60);
+         
+            if (quizTimeSeconds < 10) {
+               quizTimeSeconds = '0'+quizTimeSeconds;
+            }
+         
+            var timeToShow = 'pozostało : '+quizTimeMinutes+'m '+quizTimeSeconds+'s ';
 
-         timeleft = parseInt((endTime - currentTime )/1000);
+        /////////////////////////////////
+            if (!timeLeft){
+               clearInterval(timer);
+               endOfQuiz();            
+            }else{
+               document.getElementsByClassName('quiz-status-time')[0].innerHTML = timeToShow;
+            }
+        /////////////////////////////////
 
-         var quizTimeMinutes = parseInt(timeleft / 60);
-         var quizTimeSeconds = parseInt(timeleft % 60);
-      
-         if (quizTimeSeconds < 10) {
-            quizTimeSeconds = '0'+quizTimeSeconds;
-         }
-      
-         var timeToShow = 'pozostało : '+quizTimeMinutes+'m '+quizTimeSeconds+'s ';
-
-     /////////////////////////////////
-         if (!timeleft){
-            
-            clearInterval(timer);
-            endOfQuiz(true);
-            
-         }else{
-            
-            document.getElementsByClassName('quiz-status-time')[0].innerHTML = timeToShow;
-            
-         }
-     /////////////////////////////////
-
-      }, timerMilisecondsRefresh)
-      
+         }, 1000)    
+   }
 }
 ///////////////////////////
 /////////   FUNCTIONS  ///
@@ -269,16 +265,9 @@ function answerQuestion(n){
 
 }
 
-function endOfQuiz(timeLeft) { 
+function endOfQuiz(timeLeft){
    
-   if(timeLeft === true) console.log('KONIEC CZASU');
-   else console.log('KONIEC');
-   
-   /// UPDATE HEADER
-   /////////////////
-   var header = '<h2> FEEDBACK SCREEN </h2>';
-   document.getElementsByClassName('quiz-status')[0].innerHTML = header;
-   
+
    ///QUIZ DETATCH
    ////////////////
    document.getElementById("quiz").innerHTML = '';
@@ -296,24 +285,32 @@ function endOfQuiz(timeLeft) {
    Container.innerHTML = '';
    
    /////////////////////////////////////////////////////
-   /////////////////////////////////////////////////////
+   ///////FEEDBACK      SCREEEN             ////////////
    /////////////////////////////////////////////////////
 
    var div = document.createElement('div');
    div.className = 'feedback feedback-header';
-   div.innerHTML = 'FEEDBACK SCREEN TEMP';
-
+   div.innerHTML = '<h1>TIMELEFT<h1> <br> <h2>'
+                     +parseInt(timeLeft / 60);
+                     +parseInt(timeLeft % 60);
+                     +'</h2>';
+   
    Container.appendChild(div);
 
    var currentDiv = document.getElementsByTagName('div')[0];
    var totPoints = document.createElement('p');
    totPoints.className = 'feedback-points';
-   totPoints.innerHTML = totalScore;
+   totPoints.innerHTML = totalScore+'/'+quizNoOfQuestions;
    currentDiv.appendChild(totPoints);
 
-
    currentDiv.appendChild(totPoints);
 
+   //// CHECKS ARE THERE ANY UNANSWERED QUESTIONS IF YOU GOT TIMELEFT
+   if(!timeLeft){
+
+   }else{
+      timeLeft = 0
+   }
        
    /////////////////////////////////////////////////////
    /////////////////////        ////////////////////////
