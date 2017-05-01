@@ -130,14 +130,36 @@ input:checked+label {
 }
 
 
-/********END**********/
+/********FEEDBACK SCREEN**********/
+li{
+   margin-left: 10px;
+}
+
+.feedback{
+   padding: 5px;
+   padding-left: 10px;
+   border-left: 3px solid white;
+   margin: 5px 0;
+   width: 100%;
+   min-height: 100px;
+   background-color: #303030;
+
+}
 
 .feedback--good{
-   
+   background-color: #307030;
+   border-color: green;
 }
+
 .feedback--bad{
-   
+   background-color: #703030;
+   border-color: red;
 }
+
 .feedback-p--crossed{
-   
+   text-decoration: line-through;
+   color:red;
+}
+.feedback-p{
+   color:green;
 }
