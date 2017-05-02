@@ -34,6 +34,55 @@ label {
    display: none
 }
 
+/****** LOGIN PAGE *******/
+
+#index-header-container {
+   margin: 30px auto;
+}
+
+.header {
+   width: 300px;
+   text-align: center;
+}
+
+.header-input-name {
+   width: 200px;
+   height: 28px;
+   color: #202020;
+   border: ivory solid 1px;
+   border-top: none;
+   background-color: #303030;
+   padding: 3px;
+   color: ivory;
+   text-align: center;
+   letter-spacing: 2px;
+}
+
+
+.header-button-orange {
+   display: block;
+   width: 200px;
+   height: 28px;
+   text-align: center;
+   background-color: orange;
+   border-radius: 3px;
+   color:black;
+   margin: auto;
+   margin-top: 3ex;
+   letter-spacing: 2px;
+   font-weight: bold;
+   cursor: pointer;
+}
+
+.header-username-label {
+   visibility: hidden;
+   display: block;
+}
+
+/*******************************/
+      /*      QUIZ        */
+/*******************************/
+
 /********BAR STYLES***************/
 
 .quiz-bar {
@@ -219,3 +268,6 @@ li{
 .feedback-points--bad{
    color: red;
 }
+
+
+
