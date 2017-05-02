@@ -5,40 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-	<link href="https://styleguide.brainly.com/77.2.0/style-guide.css" rel="stylesheet"/> 
-	<link rel="stylesheet" href="css/quiz.css"> 
-	<link rel="stylesheet" href="css/mobile-crossbrowser.css"> 
+  <link href="https://styleguide.brainly.com/77.2.0/style-guide.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/quiz.css"> 
+  <link rel="stylesheet" href="css/mobile-crossbrowser.css"> 
    
 
-	<title>QuizApp</title>
+  <title>QuizApp</title>
     
     <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 <!-- <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"> -->
 </head>
 
 
-<body onload="setUp()">
+<body>
     
-   <section id="quiz-box">
-       
-       <nav class="quiz-status">
-        
-          <progress class="quiz-status-progress" value="0.0"></progress>
-          <h4 class="quiz-status-time">pozostało : --m --s</h4>
-          <h4 class="quiz-status-id"></h4>
-          <br>
-          
-       </nav>        
-       
-       <div id="quiz"></div>
-               
-                
-       <label class="quiz-submit quiz-bar" id="quiz-submit-label"><input type="button" id="submit-button" name="submit" onclick="answerQuestion(currentQuestionID);" value=" ">
-       </label>
-                             
-   </section>    
+   <section id="quiz-box"></section>   
 
-   <script src="js/quiz-loader.js"></script>	
+        <header class="header" id="index-header-container">
+        <br>
+        <h1>Welcome to Quiz App</h1>
+        <br>
+        <h3>"Zeit ist knapp"</h3>
+        <br>
+        <label for="username">Name<br>
+        <input name="username" type="text" class="header-input-name" placeholder="">
+        <br>
+        <p class="header-button-orange" onclick="setUp();" >
+          BEGIN QUIZ
+        </p>
+      </header> 
+
+   <script src="js/quiz-loader.js"></script>  
     
 </body>
 </html>
+       
+       
