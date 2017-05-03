@@ -1,28 +1,19 @@
-///////////////////////////////////////
+//////////////////////////////////////
 /////////    VANILLA JS
 //////////////////////////////////////
-'use strict';
-
-
-function interFace() {
-   readJSON;
-   setUp;
-   showQuestion;
-   answerQuestion;
-   endOfQuiz;
-}
+            'use strict';
 //////////////////////////////////////
 /////////   OBTAINING QUIZ FROM URL
-/////////////////////////////////////
+//////////////////////////////////////
 var path = 'https://cdn.rawgit.com/kdzwinel/cd08d08002995675f10d065985257416/raw/811ad96a0567648ff858b4f14d0096ba241f28ef/quiz-data.json';
 
-   //////////////////////////////////
+   ///////////////////////////////////
    //
    // (•_•)
-   //<)   )╯ 'Cause I just wanna copy and paste
+   //<)   )/ 'Cause I just wanna copy and paste
    // /    \
    //  (•_•)
-   // <(   (>   copy and paste
+   // <(   (>   copy and paste   
    //  /    \
    //    (•_•)        (•_•)
    //  <)   (>  uh    <)   (>     huh
@@ -47,6 +38,7 @@ var quizNoOfQuestions = quiz.questions.length;
 ////////       VARIABLES
 /////////////////////////////////
 
+var userName = 'unnamed';
 var userAnswerID;      //
 var questionAnswerID; // compare ID's
 var userAnswer; 
@@ -73,7 +65,7 @@ var Answer = function(id, question, correctAns, userAns, scored){
    this.question = question;
    this.correctAnswer = correctAns || ' . . . ';
    this.userAnswer = userAns || ' ... ';
-   this.userScored = scored || '-';
+   this.userScored = scored || false;
 };
 
 //////////////////////////////////
@@ -162,6 +154,8 @@ function showQuestion(n) {
 function answerQuestion(n){
    
    ///PROCEED IF USER GAVE ANY ANSWER
+   console.log('answer question invoked with : '+n);
+
    if(userAnswerID != null){
             
       ///SCAN FOR CORRECT ANSWER AND SAVE
@@ -176,37 +170,32 @@ function answerQuestion(n){
       var userAnswer = quiz.questions[n].answers[userAnswerID-1];
    
       ///// IF USER SCORED +/- THEN RESET TO null
-      if(userAnswer.correct)
-      {
-         userScored = '+';
+      if(userAnswer.correct){
+
+         userScored = true;
          totalScore++;
       }else{
-         userScored = '-';
+
+         userScored = false;
       }
-      userAnswerID = null;
             
-      ///ROLL QUESTIONS
-      currentQuestionID++;
-      
       ///UPDATE CLASS OF BAR TO DEFAULT
-      document.getElementById("quiz-submit-label").
-      className = "quiz-submit quiz-bar quiz-submit--default";
+      document.getElementById("quiz-submit-label")
+      .className = "quiz-submit quiz-bar quiz-submit--default";
       
       ///UPDATE PROGRESS BAR
       var progress = currentQuestionID/quizNoOfQuestions ;
-      document.getElementsByTagName('progress')[0].
-      setAttribute('value', progress);
+      document.getElementsByTagName('progress')[0]
+      .setAttribute('value', progress);
       
-      ///CLEAR QUIZ AND SHOW NEXT
-      document.getElementById('quiz').innerHTML = '';
-      showQuestion(currentQuestionID);
 
       /////////////////////////////////////////////////
       /////////////////////////////////////////////////
       /// PUSH AS NEW OBJECT IN ANSWER ARRAY //////////
       ///                                    //////////
+      ///                                    //////////
       answers.push( new Answer(              //////////     
-         currentQuestionID,                  //////////   
+         currentQuestionID+1,                //////////   
          quiz.questions[n].question,         //////////  
          questionAnswer,                     //////////
          userAnswer.answer,                  //////////
@@ -216,17 +205,27 @@ function answerQuestion(n){
       ///                                    //////////
       /////////////////////////////////////////////////
       /////////////////////////////////////////////////
-      
-   }
 
-   if ((userAnswerID == null )&&( currentQuestionID != 0 )){
+      ///ROLL QUESTIONS
+      currentQuestionID++;
+
+      ///CLEAR QUIZ AND SHOW NEXT
+      document.getElementById('quiz').innerHTML = '';
+      showQuestion(currentQuestionID);
+      
+      userAnswerID = null;
+      
+   }else{
       ///CHANGE STYLE OF SUBMIT BUTTON IF NO ANSWER WERE GIVEN AND RESET AFTER 500ms
-      document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--noanswer";
-      setTimeout(function(){
-         document.getElementById("quiz-submit-label").className = "quiz-submit quiz-bar quiz-submit--default";
-      },500)
-   }   
-}
+
+      document.getElementById("quiz-submit-label")
+      .className = "quiz-submit quiz-bar quiz-submit--default";
+      
+      document.getElementById("quiz-submit-label")
+      .className = "quiz-submit quiz-bar quiz-submit--noanswer";
+        
+      }     
+   }  
 
 
 //////////////////////
@@ -236,17 +235,17 @@ function setTimer(){
    /////   START COUNTING THETIME
    var date = new Date();
    
-   var startTime = date.getTime();
+   var startTime = date.getTime();  
    
    endTime = startTime + (quiz.time_seconds+1)*1000;
-
+// 
    timeLeft = date.getTime() - endTime;
    
             timer = setInterval(function(){
             var date = new Date();
             var currentTime = date.getTime();
 
-            timeLeft = parseInt((endTime - currentTime )/1000);
+            timeLeft = parseInt(( endTime - currentTime )/1000);
 
             var quizTimeMinutes = parseInt(timeLeft / 60);
             var quizTimeSeconds = parseInt(timeLeft % 60);
@@ -269,7 +268,7 @@ function setTimer(){
 
 
 function endOfQuiz(){
-   
+
    clearInterval(timer);
    
    ///QUIZ DETATCH
@@ -292,10 +291,10 @@ function endOfQuiz(){
 
    if(secondsLeft < 10) secondsLeft = '0'+secondsLeft;
 
-   div.innerHTML = '<h1>TIMELEFT<h1> <br> <h2>'
+   div.innerHTML = '<h2>'+userName+'<h2> <br> <h4> Timeleft '
                      +minutesLeft+':'
                      +secondsLeft+' min'
-                     +'</h2>';
+                     +'</h4>';
    
    Container.appendChild(div);
 
@@ -305,36 +304,42 @@ function endOfQuiz(){
    totPoints.innerHTML = totalScore+'/'+quizNoOfQuestions;
    currentDiv.appendChild(totPoints);
 
-   currentDiv.appendChild(totPoints);
-
    //// CHECKS ARE THERE ANY UNANSWERED QUESTIONS IF YOU GOT TIMELEFT
+
 
 
 
    if(timeLeft == 0){
       // HERE YOU CAN OBTAIN TIMELEFT
+
    }else{
       timeLeft = 0;
+
    }
        
    /////////////////////////////////////////////////////
    /////////////////////        ////////////////////////
    ///////////////                   ///////////////////
-   answers.forEach(function(element, index){
-   
+   for(var index=0; index<(answers.length+1); index++){
+   // answers.forEach(function(element, index){
+         
+         var element = answers[index];
+
          //// CREATE DIV FOR EACH QUESTION 
          var div = document.createElement('div');
 
          //// ADD PROPER CSS CLASS
-         if(element.userScored == '+'){
+         if(element.userScored == true){
             div.className = 'feedback feedback-answer--good';         
          }else{
             div.className = 'feedback feedback-answer--bad';
          }
+         console.log('index '+index);
+         console.log(element);
 
          //// APPEND DIV AND CHOOSE CURRENT DIV
          Container.appendChild(div);
-         var currentDiv = Container.getElementsByTagName('div')[index +1]; ///offset by 1, becouse of first header div
+         var currentDiv = Container.getElementsByTagName('div')[index+1]; 
 
          //// CREATE PARAGRAPHS FOR FEEDBACK DIV
          var parQuestion = document.createElement('p');
@@ -349,16 +354,7 @@ function endOfQuiz(){
          parCorrectAnswer.innerHTML = ' '+element.correctAnswer;
                   
          //// SET OF APPENDS IN FEEDBACK
-         if(element.userScored == '-'){
-
-            parUserAnswer.className = 'feedback-p--crossed';
-            parPoints.className = 'feedback-points feedback-points--bad';
-            currentDiv.appendChild(parPoints);
-            currentDiv.appendChild(parQuestion);
-            currentDiv.appendChild(parUserAnswer);         
-            currentDiv.appendChild(parCorrectAnswer);
-
-         }else{
+         if(element.userScored == true){
 
             parPoints.innerHTML = '+1';
             parPoints.className = 'feedback-points feedback-points--good';
@@ -366,18 +362,32 @@ function endOfQuiz(){
             currentDiv.appendChild(parPoints);
             currentDiv.appendChild(parQuestion);
             currentDiv.appendChild(parUserAnswer);
+
+         }else{
+
+            parUserAnswer.className = 'feedback-p--crossed';
+            parPoints.className = 'feedback-points feedback-points--bad';
+
+            currentDiv.appendChild(parPoints);
+            currentDiv.appendChild(parQuestion);
+            currentDiv.appendChild(parUserAnswer);         
+            currentDiv.appendChild(parCorrectAnswer);
+
       }
       
-   });
+   };
    ///////////////                 ////////////////////
    ////////////////////      //////////////////////////
    ////////////////////////////////////////////////////
 }
 
-
-
    function createQuizDOM(){
 
+      userName =  document.getElementsByClassName('header-input-name')[0].value;
+
+      if(userName == ''){
+         userName = 'Unnamed'
+      }
       //// CLEAN OUT QUIZ AND INDEX HEADER BOX STUFF
       document.getElementById('index-header-container').innerHTML = '';
 
@@ -428,5 +438,4 @@ function endOfQuiz(){
       document.getElementById('quiz-submit-label').addEventListener('click', function(){
          answerQuestion(currentQuestionID);
       });
-            
    }
