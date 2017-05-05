@@ -147,6 +147,7 @@ label {
 .quiz-submit--default {
    border: 3px solid #ff3;
    border-top:none;
+   animation:none;
 }
 
 .quiz-submit--default:hover {
@@ -162,11 +163,13 @@ label {
 }
 
 .quiz-submit--noanswer {
-   background-color: #888;
-   border: 3px solid #a33;
+   /*background-color: #888;*/
+   animation-name: anim--noanswer;
+   animation-duration: 0.5s;
+       animation-iteration-count: 2;
+
+   border: 3px solid #ddd;
    border-top:none;
-   transition: 0.5s;
-   color:#666;
 }
 
 /********FANCY ONCLICK**********/
@@ -271,3 +274,10 @@ li{
 
 
 
+/*----ANIMATION****/
+
+@keyframes anim--noanswer{
+   0%{background-color: #666; border-color:white;}
+   50%{background-color: #977; border-color: red;}
+   100%{background-color: #666; border-color:white;}
+}

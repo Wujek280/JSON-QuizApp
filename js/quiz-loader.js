@@ -1,4 +1,4 @@
-//////////////////////////////////////
+﻿//////////////////////////////////////
 /////////    VANILLA JS
 //////////////////////////////////////
             'use strict';
@@ -184,7 +184,7 @@ function answerQuestion(n){
       .className = "quiz-submit quiz-bar quiz-submit--default";
       
       ///UPDATE PROGRESS BAR
-      var progress = currentQuestionID/quizNoOfQuestions ;
+      var progress = (currentQuestionID+1)/quizNoOfQuestions ;
       document.getElementsByTagName('progress')[0]
       .setAttribute('value', progress);
       
