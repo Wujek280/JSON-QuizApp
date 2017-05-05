@@ -1,0 +1,254 @@
+{
+  "time_seconds": 300,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Obwód trójkąta ABC wynosi 20cm. Jaką długość ma podstawa AB?",
+      "answers": [
+        {
+          "id": 1,
+          "answer": "8.4 cm",
+          "correct": true
+        },
+        
+        {
+          "id": 2,
+          "answer": "5.8 cm",
+          "correct": false
+        },
+        
+        {
+          "id": 3,
+          "answer": "0.6 cm",
+          "correct": false
+        },
+        
+        {
+          "id": 4,
+          "answer": "1.2 cm",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "356 banknotów stuzłotowych oraz 60 banknotów pięćdziesięciozłotowych to:",
+      "answers": [
+        {
+          "id": 1,
+          "answer": "35 660 zł",
+          "correct": false
+        },
+        
+        {
+          "id": 2,
+          "answer": "3 560 050 zł",
+          "correct": false
+        },
+        
+        {
+          "id": 3,
+          "answer": "38 600 zł",
+          "correct": true
+        },
+        
+        {
+          "id": 4,
+          "answer": "3 863 000 zł",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "W starożytnym Rzymie władzy konsulów nie podlegali jedynie:",
+      "answers": [
+        {
+          "id": 1,
+          "answer": "kwestorzy",
+          "correct": false
+        },
+        
+        {
+          "id": 2,
+          "answer": "pretorzy",
+          "correct": false
+        },
+        
+        {
+          "id": 3,
+          "answer": "liktorzy",
+          "correct": false
+        },
+        
+        {
+          "id": 4,
+          "answer": "trybuni ludowi",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "Gall Anonim idealizował zmożność państwa polskiego za czasów Bolesława Chrobrego, gdy zapisywał następujące słowa:",
+      "answers": [
+        {
+          "id": 1,
+          "answer": "Nie godzi się takiego i tak wielkiego męża, jakby jednego spośród dostojników księciem nazywać lub hrabią [...].",
+          "correct": false
+        },
+        
+        {
+          "id": 2,
+          "answer": "Złoto bowiem za jego czasów było tak pospolite u wszystkich, jak [dziś] srebro, srebro zaś tak tanie jak słoma.",
+          "correct": true
+        },
+        
+        {
+          "id": 3,
+          "answer": "Na koronę mego cesarstwa! To, co widzę, większe jest, niż wieść głosiła!",
+          "correct": false
+        },
+        
+        {
+          "id": 4,
+          "answer": "[...] hufce przeróżne rycerstwa [...] [Bolesław] rozstawił [...] na obszernej równinie, a poszczególne, z osobna stojące hufce wyrózniała odmienna barwa strojów.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "Wit Stwosz był:",
+      "answers": [
+        {
+          "id": 1,
+          "answer": "Filozofem z Poznania",
+          "correct": false
+        },
+        {
+          "id": 2,
+          "answer": "Znanym niemieckim teologiem",
+          "correct": false
+        },
+        {
+          "id": 3,
+          "answer": "Twórcą ołtarza w kościele Mariackim w Krakowie",
+          "correct": true
+        },
+        {
+          "id": 4,
+          "answer": "Najbogatszym Krakowskim kupcem",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "question": "Alkiny to węglowodory, w których cząsteczkach między atomami węgla są:",
+      "answers": [
+        {
+          "id": 1,
+          "answer": "wyłącznie pojedyncze wiązania",
+          "correct": false
+        },
+        {
+          "id": 2,
+          "answer": "pojedyncze wiązania i jedno podwójne wiązanie",
+          "correct": false
+        },
+        {
+          "id": 3,
+          "answer": "pojedyncze wiązania i jedno potrójne wiązanie",
+          "correct": true
+        },
+        {
+          "id": 4,
+          "answer": "wiązania pojedyncze, jedno podwójne wiązanie i jedno potrójne",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "question": "Wspólną cechą metanu i oktanu jest:",
+      "answers": [
+        {
+          "id": 1,
+          "answer": "stan skupienia",
+          "correct": false
+        },
+        {
+          "id": 2,
+          "answer": "gęstość",
+          "correct": false
+        },
+        {
+          "id": 3,
+          "answer": "długość łańcucha węglowego",
+          "correct": false
+        },
+        {
+          "id": 4,
+          "answer": "mała reaktywność",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Który opis dotyczy właściwości ropy naftowej?",
+      "answers": [
+        {
+          "id": 1,
+          "answer": "Palna, lepka ciecz o specyficznym zapachu i barwie od jasno do ciemnobrązowej",
+          "correct": true
+        },
+        
+        {
+          "id": 2,
+          "answer": "palna ciecz, bezbarwna, bez zapachu, nie miesza się z wodą",
+          "correct": false
+        },
+        
+        {
+          "id": 3,
+          "answer": "lekko żółta ciecz, niepalna, unosi się na powierzchni wody",
+          "correct": false
+        },
+        
+        {
+          "id": 4,
+          "answer": "palny, bezwonny gaz, z powietrzem tworzy mieszaninę wybuchową",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "question": "Pierwiastki z tej samej grupy układu okresowega charakteryzują się podobnymi właściwościami, gdyż mają taką samą liczbę:",
+      "answers": [
+        {
+          "id": 1,
+          "answer": "izotopów",
+          "correct": false
+        },
+        {
+          "id": 2,
+          "answer": "elektronów",
+          "correct": false
+        },
+        {
+          "id": 3,
+          "answer": "eloktronów walencyjnych",
+          "correct": true
+        },
+        {
+          "id": 4,
+          "answer": "powłok elektronowych",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}
